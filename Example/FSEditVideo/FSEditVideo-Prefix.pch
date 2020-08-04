@@ -13,4 +13,8 @@
 #ifdef __OBJC__
     @import UIKit;
     @import Foundation;
+
+#import "UIImage+FSUtility.h"
+#import "FSFrameMacro.h"
+#import "FSCompoundTool.h"
 #endif

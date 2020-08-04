@@ -24,6 +24,18 @@
 		69943CADFA7B41A502C4497B /* Pods_FSEditVideo_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E196164A8EF5CEB624D49CEF /* Pods_FSEditVideo_Example.framework */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		E9922C9224D955E200F2D197 /* FSCameraConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922C7324D955E200F2D197 /* FSCameraConfig.m */; };
+		E9922C9324D955E200F2D197 /* FSCompoundTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922C7524D955E200F2D197 /* FSCompoundTool.m */; };
+		E9922C9424D955E200F2D197 /* NSString+FSUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922C7924D955E200F2D197 /* NSString+FSUtility.m */; };
+		E9922C9524D955E200F2D197 /* UIButton+FSUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922C7C24D955E200F2D197 /* UIButton+FSUtility.m */; };
+		E9922C9624D955E200F2D197 /* UIColor+FSUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922C7E24D955E200F2D197 /* UIColor+FSUtility.m */; };
+		E9922C9724D955E200F2D197 /* UIImage+FSUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922C8024D955E200F2D197 /* UIImage+FSUtility.m */; };
+		E9922C9824D955E200F2D197 /* UILabel+FSUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922C8224D955E200F2D197 /* UILabel+FSUtility.m */; };
+		E9922C9924D955E200F2D197 /* UIView+FSUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922C8424D955E200F2D197 /* UIView+FSUtility.m */; };
+		E9922C9A24D955E200F2D197 /* FSVideoThumbnailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922C8A24D955E200F2D197 /* FSVideoThumbnailModel.m */; };
+		E9922C9B24D955E200F2D197 /* DNLiveWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922C8D24D955E200F2D197 /* DNLiveWindow.m */; };
+		E9922C9C24D955E200F2D197 /* FSStreamingContext.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922C8F24D955E200F2D197 /* FSStreamingContext.m */; };
+		E9922C9D24D955E200F2D197 /* FSTimeLine.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922C9124D955E200F2D197 /* FSTimeLine.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +50,8 @@
 
 /* Begin PBXFileReference section */
 		17AD74C20ADC18A79EE31A20 /* Pods-FSEditVideo_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSEditVideo_Example.debug.xcconfig"; path = "Target Support Files/Pods-FSEditVideo_Example/Pods-FSEditVideo_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		2804EFBD13D7520D6ABA0C9F /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		5C16ABF5476B80FF8BF8C624 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		2804EFBD13D7520D6ABA0C9F /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		5C16ABF5476B80FF8BF8C624 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* FSEditVideo_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FSEditVideo_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -59,12 +71,39 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
-		6365DBC60CE62164D636DF8D /* FSEditVideo.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = FSEditVideo.podspec; path = ../FSEditVideo.podspec; sourceTree = "<group>"; };
+		6365DBC60CE62164D636DF8D /* FSEditVideo.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = FSEditVideo.podspec; path = ../FSEditVideo.podspec; sourceTree = "<group>"; };
 		69B3CBFA72AE5C9B6ACBCB36 /* Pods_FSEditVideo_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FSEditVideo_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69BC60D700AC9DD7F04175F4 /* Pods-FSEditVideo_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSEditVideo_Tests.release.xcconfig"; path = "Target Support Files/Pods-FSEditVideo_Tests/Pods-FSEditVideo_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E196164A8EF5CEB624D49CEF /* Pods_FSEditVideo_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FSEditVideo_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9922C7224D955E200F2D197 /* FSCameraConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCameraConfig.h; sourceTree = "<group>"; };
+		E9922C7324D955E200F2D197 /* FSCameraConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCameraConfig.m; sourceTree = "<group>"; };
+		E9922C7424D955E200F2D197 /* FSCompoundTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCompoundTool.h; sourceTree = "<group>"; };
+		E9922C7524D955E200F2D197 /* FSCompoundTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCompoundTool.m; sourceTree = "<group>"; };
+		E9922C7824D955E200F2D197 /* NSString+FSUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FSUtility.h"; sourceTree = "<group>"; };
+		E9922C7924D955E200F2D197 /* NSString+FSUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FSUtility.m"; sourceTree = "<group>"; };
+		E9922C7B24D955E200F2D197 /* UIButton+FSUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+FSUtility.h"; sourceTree = "<group>"; };
+		E9922C7C24D955E200F2D197 /* UIButton+FSUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+FSUtility.m"; sourceTree = "<group>"; };
+		E9922C7D24D955E200F2D197 /* UIColor+FSUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+FSUtility.h"; sourceTree = "<group>"; };
+		E9922C7E24D955E200F2D197 /* UIColor+FSUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FSUtility.m"; sourceTree = "<group>"; };
+		E9922C7F24D955E200F2D197 /* UIImage+FSUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FSUtility.h"; sourceTree = "<group>"; };
+		E9922C8024D955E200F2D197 /* UIImage+FSUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FSUtility.m"; sourceTree = "<group>"; };
+		E9922C8124D955E200F2D197 /* UILabel+FSUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+FSUtility.h"; sourceTree = "<group>"; };
+		E9922C8224D955E200F2D197 /* UILabel+FSUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+FSUtility.m"; sourceTree = "<group>"; };
+		E9922C8324D955E200F2D197 /* UIView+FSUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FSUtility.h"; sourceTree = "<group>"; };
+		E9922C8424D955E200F2D197 /* UIView+FSUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FSUtility.m"; sourceTree = "<group>"; };
+		E9922C8624D955E200F2D197 /* FSColorMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSColorMacro.h; sourceTree = "<group>"; };
+		E9922C8724D955E200F2D197 /* FSFrameMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSFrameMacro.h; sourceTree = "<group>"; };
+		E9922C8924D955E200F2D197 /* FSVideoThumbnailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSVideoThumbnailModel.h; sourceTree = "<group>"; };
+		E9922C8A24D955E200F2D197 /* FSVideoThumbnailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSVideoThumbnailModel.m; sourceTree = "<group>"; };
+		E9922C8C24D955E200F2D197 /* DNLiveWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNLiveWindow.h; sourceTree = "<group>"; };
+		E9922C8D24D955E200F2D197 /* DNLiveWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNLiveWindow.m; sourceTree = "<group>"; };
+		E9922C8E24D955E200F2D197 /* FSStreamingContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSStreamingContext.h; sourceTree = "<group>"; };
+		E9922C8F24D955E200F2D197 /* FSStreamingContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSStreamingContext.m; sourceTree = "<group>"; };
+		E9922C9024D955E200F2D197 /* FSTimeLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSTimeLine.h; sourceTree = "<group>"; };
+		E9922C9124D955E200F2D197 /* FSTimeLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSTimeLine.m; sourceTree = "<group>"; };
+		E9922C9E24D9569B00F2D197 /* FSEditVideoGlobal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSEditVideoGlobal.h; sourceTree = "<group>"; };
 		F0FDFA2A520A8B0A0E55453B /* Pods-FSEditVideo_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSEditVideo_Example.release.xcconfig"; path = "Target Support Files/Pods-FSEditVideo_Example/Pods-FSEditVideo_Example.release.xcconfig"; sourceTree = "<group>"; };
 		F5C627368BB0B8FDB17E3731 /* Pods-FSEditVideo_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSEditVideo_Tests.debug.xcconfig"; path = "Target Support Files/Pods-FSEditVideo_Tests/Pods-FSEditVideo_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,6 +137,7 @@
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
+				E9922C7024D955E200F2D197 /* Libs */,
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				6003F593195388D20070C39A /* Example for FSEditVideo */,
 				6003F5B5195388D20070C39A /* Tests */,
@@ -185,6 +225,97 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
+		E9922C7024D955E200F2D197 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				E9922C7124D955E200F2D197 /* Config */,
+				E9922C7624D955E200F2D197 /* Extension */,
+				E9922C8524D955E200F2D197 /* Macro */,
+				E9922C8824D955E200F2D197 /* Model */,
+				E9922C8B24D955E200F2D197 /* View */,
+				E9922C9E24D9569B00F2D197 /* FSEditVideoGlobal.h */,
+			);
+			name = Libs;
+			path = ../FSEditVideo/Libs;
+			sourceTree = "<group>";
+		};
+		E9922C7124D955E200F2D197 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				E9922C7224D955E200F2D197 /* FSCameraConfig.h */,
+				E9922C7324D955E200F2D197 /* FSCameraConfig.m */,
+				E9922C7424D955E200F2D197 /* FSCompoundTool.h */,
+				E9922C7524D955E200F2D197 /* FSCompoundTool.m */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		E9922C7624D955E200F2D197 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				E9922C7724D955E200F2D197 /* NSUtility */,
+				E9922C7A24D955E200F2D197 /* UIUtility */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		E9922C7724D955E200F2D197 /* NSUtility */ = {
+			isa = PBXGroup;
+			children = (
+				E9922C7824D955E200F2D197 /* NSString+FSUtility.h */,
+				E9922C7924D955E200F2D197 /* NSString+FSUtility.m */,
+			);
+			path = NSUtility;
+			sourceTree = "<group>";
+		};
+		E9922C7A24D955E200F2D197 /* UIUtility */ = {
+			isa = PBXGroup;
+			children = (
+				E9922C7B24D955E200F2D197 /* UIButton+FSUtility.h */,
+				E9922C7C24D955E200F2D197 /* UIButton+FSUtility.m */,
+				E9922C7D24D955E200F2D197 /* UIColor+FSUtility.h */,
+				E9922C7E24D955E200F2D197 /* UIColor+FSUtility.m */,
+				E9922C7F24D955E200F2D197 /* UIImage+FSUtility.h */,
+				E9922C8024D955E200F2D197 /* UIImage+FSUtility.m */,
+				E9922C8124D955E200F2D197 /* UILabel+FSUtility.h */,
+				E9922C8224D955E200F2D197 /* UILabel+FSUtility.m */,
+				E9922C8324D955E200F2D197 /* UIView+FSUtility.h */,
+				E9922C8424D955E200F2D197 /* UIView+FSUtility.m */,
+			);
+			path = UIUtility;
+			sourceTree = "<group>";
+		};
+		E9922C8524D955E200F2D197 /* Macro */ = {
+			isa = PBXGroup;
+			children = (
+				E9922C8624D955E200F2D197 /* FSColorMacro.h */,
+				E9922C8724D955E200F2D197 /* FSFrameMacro.h */,
+			);
+			path = Macro;
+			sourceTree = "<group>";
+		};
+		E9922C8824D955E200F2D197 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E9922C8924D955E200F2D197 /* FSVideoThumbnailModel.h */,
+				E9922C8A24D955E200F2D197 /* FSVideoThumbnailModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E9922C8B24D955E200F2D197 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E9922C8C24D955E200F2D197 /* DNLiveWindow.h */,
+				E9922C8D24D955E200F2D197 /* DNLiveWindow.m */,
+				E9922C8E24D955E200F2D197 /* FSStreamingContext.h */,
+				E9922C8F24D955E200F2D197 /* FSStreamingContext.m */,
+				E9922C9024D955E200F2D197 /* FSTimeLine.h */,
+				E9922C9124D955E200F2D197 /* FSTimeLine.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		FA50629A2C56BA9A2D404C55 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,7 +324,6 @@
 				F5C627368BB0B8FDB17E3731 /* Pods-FSEditVideo_Tests.debug.xcconfig */,
 				69BC60D700AC9DD7F04175F4 /* Pods-FSEditVideo_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -249,6 +379,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "fanshij@163.com";
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = 334V4U3KT6;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -259,6 +392,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -389,9 +523,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9922C9924D955E200F2D197 /* UIView+FSUtility.m in Sources */,
 				6003F59E195388D20070C39A /* FSAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* FSViewController.m in Sources */,
+				E9922C9824D955E200F2D197 /* UILabel+FSUtility.m in Sources */,
+				E9922C9B24D955E200F2D197 /* DNLiveWindow.m in Sources */,
+				E9922C9724D955E200F2D197 /* UIImage+FSUtility.m in Sources */,
+				E9922C9324D955E200F2D197 /* FSCompoundTool.m in Sources */,
+				E9922C9624D955E200F2D197 /* UIColor+FSUtility.m in Sources */,
+				E9922C9D24D955E200F2D197 /* FSTimeLine.m in Sources */,
+				E9922C9A24D955E200F2D197 /* FSVideoThumbnailModel.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				E9922C9224D955E200F2D197 /* FSCameraConfig.m in Sources */,
+				E9922C9C24D955E200F2D197 /* FSStreamingContext.m in Sources */,
+				E9922C9524D955E200F2D197 /* UIButton+FSUtility.m in Sources */,
+				E9922C9424D955E200F2D197 /* NSString+FSUtility.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,11 +665,12 @@
 			baseConfigurationReference = 17AD74C20ADC18A79EE31A20 /* Pods-FSEditVideo_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 334V4U3KT6;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FSEditVideo/FSEditVideo-Prefix.pch";
 				INFOPLIST_FILE = "FSEditVideo/FSEditVideo-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dnaer.english;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
@@ -535,11 +682,12 @@
 			baseConfigurationReference = F0FDFA2A520A8B0A0E55453B /* Pods-FSEditVideo_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 334V4U3KT6;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FSEditVideo/FSEditVideo-Prefix.pch";
 				INFOPLIST_FILE = "FSEditVideo/FSEditVideo-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dnaer.english;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;

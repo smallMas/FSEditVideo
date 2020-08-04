@@ -30,7 +30,8 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'FSEditVideo/Classes/**/*'
+  #s.source_files = 'FSEditVideo/Classes/**/*'
+  s.source_files = 'FSEditVideo/Libs/**/*.{m,h}'
   
   # s.resource_bundles = {
   #   'FSEditVideo' => ['FSEditVideo/Assets/*.png']
