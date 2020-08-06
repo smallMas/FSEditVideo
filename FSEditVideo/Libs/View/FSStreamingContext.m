@@ -55,7 +55,8 @@
     _timeline = timeline;
     
     // 传入地址 (CGSize)
-    AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:[self.timeline getTimeAsset]];
+    AVAsset *asset = [self.timeline getTimeAsset];
+    AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
     AVMutableVideoComposition *composition = [self.timeline videoComposition];
     [playerItem setVideoComposition:composition];
     
@@ -130,10 +131,11 @@
         return;
     }
     //AVAssetExportSession用于合并文件，导出合并后文件，presetName文件的输出类型
-    AVAssetExportSession *assetExportSession = [[AVAssetExportSession alloc] initWithAsset:[self.timeline getTimeAsset] presetName:AVAssetExportPresetMediumQuality];//AVAssetExportPreset640x480
+    AVAsset *asset = [self.timeline getTimeAsset];
+    AVAssetExportSession *assetExportSession = [[AVAssetExportSession alloc] initWithAsset:asset presetName:AVAssetExportPresetMediumQuality];//AVAssetExportPreset640x480
     
-    AVMutableVideoComposition *avMutableVideoComposition = [self.timeline videoComposition];
-    [assetExportSession setVideoComposition:avMutableVideoComposition];
+//    AVMutableVideoComposition *avMutableVideoComposition = [self.timeline videoComposition];
+//    [assetExportSession setVideoComposition:avMutableVideoComposition];
     
     //混合后的视频输出路径
     NSURL *outPutUrl = [NSURL fileURLWithPath:outPutPath];
@@ -173,9 +175,11 @@
                 break;
         }
         
-        if (block) {
-            block(is, outPutPath);
-        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (block) {
+                block(is, outPutPath);
+            }
+        });
     }];
 }
 

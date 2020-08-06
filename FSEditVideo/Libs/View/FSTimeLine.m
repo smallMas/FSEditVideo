@@ -38,6 +38,10 @@
 #pragma mark - 外部调用
 - (void)appendVideoClip:(NSString *)path trimIn:(int64_t)trimIn trimOut:(int64_t)trimOut {
     NSLog(@"video trimIn:%lld trimOut : %lld",trimIn,trimOut);
+    if (!path) {
+        NSAssert(NO, @"添加的视频文件不能为空");
+        return;
+    }
     NSURL *videoUrl = [NSURL fileURLWithPath:path];
     if (videoUrl) {
         AVURLAsset* videoAsset = [[AVURLAsset alloc] initWithURL:videoUrl options:nil];
@@ -49,36 +53,49 @@
         CMTime videoDuration = CMTimeMake(trimOut-trimIn, FS_TIME_BASE);//CMTimeMakeWithSeconds(trimOut, videoAsset.duration.timescale);
         CMTimeRange videoTimeRange = CMTimeRangeMake(startTime, videoDuration);
         
-        //视频采集compositionVideoTrack
-        AVMutableCompositionTrack *compositionVideoTrack = [self.mixComposition addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid];
-        
         NSError *error = nil;
-        //TimeRange截取的范围长度
-        //ofTrack来源
-        //atTime插放在视频的时间位置
-        NSArray *videoTracks = [videoAsset tracksWithMediaType:AVMediaTypeVideo];
-        AVAssetTrack *videoTrack = videoTracks.count > 0 ? videoTracks.firstObject : nil;
-        BOOL is = [compositionVideoTrack insertTimeRange:videoTimeRange ofTrack:videoTrack atTime:kCMTimeZero error:&error];
-        if (!is) {
-            NSLog(@"video insert error : %@",error);
-        }
         
-        // 添加原视频的声音
-        //视频声音采集(也可不执行这段代码不采集视频音轨，合并后的视频文件将没有视频原来的声音)
-        AVMutableCompositionTrack *compositionVoiceTrack = [self.mixComposition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid];
-        NSArray *voiceTracks = [videoAsset tracksWithMediaType:AVMediaTypeAudio];
-        AVAssetTrack *voiceTrack = voiceTracks.count > 0 ? voiceTracks.firstObject : nil;
-        BOOL isVoice = [compositionVoiceTrack insertTimeRange:videoTimeRange
-                                       ofTrack:voiceTrack
-                                        atTime:kCMTimeZero error:&error];
-        if (!isVoice) {
-            NSLog(@"voice insert error : %@",error);
-        }
+        // 方法一 : 分别加视频轨道和声音轨道（这种方法暂时有问题，导出新的视频后，不能再编辑了）
+//        //视频采集compositionVideoTrack
+//        AVMutableCompositionTrack *compositionVideoTrack = [self.mixComposition addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid];
+//        //TimeRange截取的范围长度
+//        //ofTrack来源
+//        //atTime插放在视频的时间位置
+//        NSArray *videoTracks = [videoAsset tracksWithMediaType:AVMediaTypeVideo];
+//        AVAssetTrack *videoTrack = videoTracks.count > 0 ? videoTracks.firstObject : nil;
+//        BOOL is = [compositionVideoTrack insertTimeRange:videoTimeRange
+//                                                 ofTrack:videoTrack
+//                                                  atTime:kCMTimeZero
+//                                                   error:&error];
+//        if (!is) {
+//            NSLog(@"video insert error : %@",error);
+//        }
+//
+//        // 添加原视频的声音
+//        //视频声音采集(也可不执行这段代码不采集视频音轨，合并后的视频文件将没有视频原来的声音)
+//        AVMutableCompositionTrack *compositionVoiceTrack = [self.mixComposition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid];
+//        NSArray *voiceTracks = [videoAsset tracksWithMediaType:AVMediaTypeAudio];
+//        AVAssetTrack *voiceTrack = voiceTracks.count > 0 ? voiceTracks.firstObject : nil;
+//        BOOL isVoice = [compositionVoiceTrack insertTimeRange:videoTimeRange
+//                                       ofTrack:voiceTrack
+//                                        atTime:kCMTimeZero error:&error];
+//        if (!isVoice) {
+//            NSLog(@"voice insert error : %@",error);
+//        }
+        
+        // 方法二：直接加视频asset
+        [self.mixComposition insertTimeRange:videoTimeRange ofAsset:videoAsset atTime:kCMTimeZero error:&error];
+        
+        // 计算时长
         [self calculateDuration];
     }
 }
 
 - (void)appendAudioClip:(NSString *)path trimIn:(int64_t)trimIn trimOut:(int64_t)trimOut {
+    if (!path) {
+        NSAssert(NO, @"音乐文件不能为空");
+        return;
+    }
 //    CGFloat duration = [FSCompoundTool getMediaDurationWithMediaURL:[NSURL fileURLWithPath:path]];
 //    NSLog(@"duration >> %f",duration);
 //    if (trimIn > duration) {

@@ -36,6 +36,18 @@
 		E9922C9B24D955E200F2D197 /* DNLiveWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922C8D24D955E200F2D197 /* DNLiveWindow.m */; };
 		E9922C9C24D955E200F2D197 /* FSStreamingContext.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922C8F24D955E200F2D197 /* FSStreamingContext.m */; };
 		E9922C9D24D955E200F2D197 /* FSTimeLine.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922C9124D955E200F2D197 /* FSTimeLine.m */; };
+		E9922CEA24D962C400F2D197 /* FSClipVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922CE724D962C400F2D197 /* FSClipVideoController.m */; };
+		E9922CEB24D962C400F2D197 /* FSEditVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922CE924D962C400F2D197 /* FSEditVideoController.m */; };
+		E9922CF824D963AC00F2D197 /* FSClipVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922CEE24D963AC00F2D197 /* FSClipVideoView.m */; };
+		E9922CF924D963AC00F2D197 /* FSDragView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922CF024D963AC00F2D197 /* FSDragView.m */; };
+		E9922CFA24D963AC00F2D197 /* FSThumbnailCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922CF224D963AC00F2D197 /* FSThumbnailCollectionCell.m */; };
+		E9922CFB24D963AC00F2D197 /* FSThumbnailSequenceView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922CF424D963AC00F2D197 /* FSThumbnailSequenceView.m */; };
+		E9922CFC24D963AC00F2D197 /* FSRecordingInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922CF724D963AC00F2D197 /* FSRecordingInfo.m */; };
+		E9922D0224D963E100F2D197 /* FSPathTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922CFF24D963E100F2D197 /* FSPathTool.m */; };
+		E9922D0324D963E100F2D197 /* FSVideoImageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922D0124D963E100F2D197 /* FSVideoImageTool.m */; };
+		E9922D0624D968D800F2D197 /* FSAlertUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922D0524D968D800F2D197 /* FSAlertUtil.m */; };
+		E9922D0A24DA5F6000F2D197 /* DNPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922D0924DA5F6000F2D197 /* DNPlayerView.m */; };
+		E9922D0D24DA618600F2D197 /* FSPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922D0C24DA618600F2D197 /* FSPlayerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,7 +83,7 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
-		6365DBC60CE62164D636DF8D /* FSEditVideo.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = FSEditVideo.podspec; path = ../FSEditVideo.podspec; sourceTree = "<group>"; };
+		6365DBC60CE62164D636DF8D /* FSEditVideo.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = FSEditVideo.podspec; path = ../FSEditVideo.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		69B3CBFA72AE5C9B6ACBCB36 /* Pods_FSEditVideo_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FSEditVideo_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69BC60D700AC9DD7F04175F4 /* Pods-FSEditVideo_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSEditVideo_Tests.release.xcconfig"; path = "Target Support Files/Pods-FSEditVideo_Tests/Pods-FSEditVideo_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -104,6 +116,30 @@
 		E9922C9024D955E200F2D197 /* FSTimeLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSTimeLine.h; sourceTree = "<group>"; };
 		E9922C9124D955E200F2D197 /* FSTimeLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSTimeLine.m; sourceTree = "<group>"; };
 		E9922C9E24D9569B00F2D197 /* FSEditVideoGlobal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSEditVideoGlobal.h; sourceTree = "<group>"; };
+		E9922CE624D962C400F2D197 /* FSClipVideoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSClipVideoController.h; sourceTree = "<group>"; };
+		E9922CE724D962C400F2D197 /* FSClipVideoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSClipVideoController.m; sourceTree = "<group>"; };
+		E9922CE824D962C400F2D197 /* FSEditVideoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSEditVideoController.h; sourceTree = "<group>"; };
+		E9922CE924D962C400F2D197 /* FSEditVideoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSEditVideoController.m; sourceTree = "<group>"; };
+		E9922CED24D963AC00F2D197 /* FSClipVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSClipVideoView.h; sourceTree = "<group>"; };
+		E9922CEE24D963AC00F2D197 /* FSClipVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSClipVideoView.m; sourceTree = "<group>"; };
+		E9922CEF24D963AC00F2D197 /* FSDragView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSDragView.h; sourceTree = "<group>"; };
+		E9922CF024D963AC00F2D197 /* FSDragView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSDragView.m; sourceTree = "<group>"; };
+		E9922CF124D963AC00F2D197 /* FSThumbnailCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSThumbnailCollectionCell.h; sourceTree = "<group>"; };
+		E9922CF224D963AC00F2D197 /* FSThumbnailCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSThumbnailCollectionCell.m; sourceTree = "<group>"; };
+		E9922CF324D963AC00F2D197 /* FSThumbnailSequenceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSThumbnailSequenceView.h; sourceTree = "<group>"; };
+		E9922CF424D963AC00F2D197 /* FSThumbnailSequenceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSThumbnailSequenceView.m; sourceTree = "<group>"; };
+		E9922CF624D963AC00F2D197 /* FSRecordingInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSRecordingInfo.h; sourceTree = "<group>"; };
+		E9922CF724D963AC00F2D197 /* FSRecordingInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSRecordingInfo.m; sourceTree = "<group>"; };
+		E9922CFE24D963E100F2D197 /* FSPathTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSPathTool.h; sourceTree = "<group>"; };
+		E9922CFF24D963E100F2D197 /* FSPathTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSPathTool.m; sourceTree = "<group>"; };
+		E9922D0024D963E100F2D197 /* FSVideoImageTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSVideoImageTool.h; sourceTree = "<group>"; };
+		E9922D0124D963E100F2D197 /* FSVideoImageTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSVideoImageTool.m; sourceTree = "<group>"; };
+		E9922D0424D968D800F2D197 /* FSAlertUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSAlertUtil.h; sourceTree = "<group>"; };
+		E9922D0524D968D800F2D197 /* FSAlertUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSAlertUtil.m; sourceTree = "<group>"; };
+		E9922D0824DA5F6000F2D197 /* DNPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNPlayerView.h; sourceTree = "<group>"; };
+		E9922D0924DA5F6000F2D197 /* DNPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNPlayerView.m; sourceTree = "<group>"; };
+		E9922D0B24DA618600F2D197 /* FSPlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSPlayerViewController.h; sourceTree = "<group>"; };
+		E9922D0C24DA618600F2D197 /* FSPlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSPlayerViewController.m; sourceTree = "<group>"; };
 		F0FDFA2A520A8B0A0E55453B /* Pods-FSEditVideo_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSEditVideo_Example.release.xcconfig"; path = "Target Support Files/Pods-FSEditVideo_Example/Pods-FSEditVideo_Example.release.xcconfig"; sourceTree = "<group>"; };
 		F5C627368BB0B8FDB17E3731 /* Pods-FSEditVideo_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSEditVideo_Tests.debug.xcconfig"; path = "Target Support Files/Pods-FSEditVideo_Tests/Pods-FSEditVideo_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -172,6 +208,7 @@
 		6003F593195388D20070C39A /* Example for FSEditVideo */ = {
 			isa = PBXGroup;
 			children = (
+				E9922CE524D962C400F2D197 /* Classes */,
 				6003F59C195388D20070C39A /* FSAppDelegate.h */,
 				6003F59D195388D20070C39A /* FSAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
@@ -314,6 +351,69 @@
 				E9922C9124D955E200F2D197 /* FSTimeLine.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E9922CE524D962C400F2D197 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				E9922D0724DA5F6000F2D197 /* Player */,
+				E9922CFD24D963E100F2D197 /* Tool */,
+				E9922CF524D963AC00F2D197 /* Model */,
+				E9922CEC24D963AC00F2D197 /* View */,
+				E9922CE624D962C400F2D197 /* FSClipVideoController.h */,
+				E9922CE724D962C400F2D197 /* FSClipVideoController.m */,
+				E9922CE824D962C400F2D197 /* FSEditVideoController.h */,
+				E9922CE924D962C400F2D197 /* FSEditVideoController.m */,
+				E9922D0B24DA618600F2D197 /* FSPlayerViewController.h */,
+				E9922D0C24DA618600F2D197 /* FSPlayerViewController.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		E9922CEC24D963AC00F2D197 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E9922CED24D963AC00F2D197 /* FSClipVideoView.h */,
+				E9922CEE24D963AC00F2D197 /* FSClipVideoView.m */,
+				E9922CEF24D963AC00F2D197 /* FSDragView.h */,
+				E9922CF024D963AC00F2D197 /* FSDragView.m */,
+				E9922CF124D963AC00F2D197 /* FSThumbnailCollectionCell.h */,
+				E9922CF224D963AC00F2D197 /* FSThumbnailCollectionCell.m */,
+				E9922CF324D963AC00F2D197 /* FSThumbnailSequenceView.h */,
+				E9922CF424D963AC00F2D197 /* FSThumbnailSequenceView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E9922CF524D963AC00F2D197 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E9922CF624D963AC00F2D197 /* FSRecordingInfo.h */,
+				E9922CF724D963AC00F2D197 /* FSRecordingInfo.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E9922CFD24D963E100F2D197 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				E9922CFE24D963E100F2D197 /* FSPathTool.h */,
+				E9922CFF24D963E100F2D197 /* FSPathTool.m */,
+				E9922D0024D963E100F2D197 /* FSVideoImageTool.h */,
+				E9922D0124D963E100F2D197 /* FSVideoImageTool.m */,
+				E9922D0424D968D800F2D197 /* FSAlertUtil.h */,
+				E9922D0524D968D800F2D197 /* FSAlertUtil.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		E9922D0724DA5F6000F2D197 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				E9922D0824DA5F6000F2D197 /* DNPlayerView.h */,
+				E9922D0924DA5F6000F2D197 /* DNPlayerView.m */,
+			);
+			path = Player;
 			sourceTree = "<group>";
 		};
 		FA50629A2C56BA9A2D404C55 /* Pods */ = {
@@ -483,11 +583,21 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-FSEditVideo_Example/Pods-FSEditVideo_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CHGAdapter/CHGAdapter.framework",
+				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/FSEditVideo/FSEditVideo.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/TZImagePickerController/TZImagePickerController.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CHGAdapter.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSEditVideo.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TZImagePickerController.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -525,18 +635,30 @@
 			files = (
 				E9922C9924D955E200F2D197 /* UIView+FSUtility.m in Sources */,
 				6003F59E195388D20070C39A /* FSAppDelegate.m in Sources */,
+				E9922CF924D963AC00F2D197 /* FSDragView.m in Sources */,
 				6003F5A7195388D20070C39A /* FSViewController.m in Sources */,
 				E9922C9824D955E200F2D197 /* UILabel+FSUtility.m in Sources */,
+				E9922D0D24DA618600F2D197 /* FSPlayerViewController.m in Sources */,
+				E9922CFB24D963AC00F2D197 /* FSThumbnailSequenceView.m in Sources */,
+				E9922CEB24D962C400F2D197 /* FSEditVideoController.m in Sources */,
 				E9922C9B24D955E200F2D197 /* DNLiveWindow.m in Sources */,
 				E9922C9724D955E200F2D197 /* UIImage+FSUtility.m in Sources */,
 				E9922C9324D955E200F2D197 /* FSCompoundTool.m in Sources */,
 				E9922C9624D955E200F2D197 /* UIColor+FSUtility.m in Sources */,
+				E9922D0A24DA5F6000F2D197 /* DNPlayerView.m in Sources */,
 				E9922C9D24D955E200F2D197 /* FSTimeLine.m in Sources */,
+				E9922D0624D968D800F2D197 /* FSAlertUtil.m in Sources */,
 				E9922C9A24D955E200F2D197 /* FSVideoThumbnailModel.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				E9922D0324D963E100F2D197 /* FSVideoImageTool.m in Sources */,
 				E9922C9224D955E200F2D197 /* FSCameraConfig.m in Sources */,
+				E9922CF824D963AC00F2D197 /* FSClipVideoView.m in Sources */,
+				E9922CFC24D963AC00F2D197 /* FSRecordingInfo.m in Sources */,
+				E9922D0224D963E100F2D197 /* FSPathTool.m in Sources */,
+				E9922CFA24D963AC00F2D197 /* FSThumbnailCollectionCell.m in Sources */,
 				E9922C9C24D955E200F2D197 /* FSStreamingContext.m in Sources */,
 				E9922C9524D955E200F2D197 /* UIButton+FSUtility.m in Sources */,
+				E9922CEA24D962C400F2D197 /* FSClipVideoController.m in Sources */,
 				E9922C9424D955E200F2D197 /* NSString+FSUtility.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

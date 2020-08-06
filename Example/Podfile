@@ -4,6 +4,11 @@ platform :ios, '8.0'
 
 target 'FSEditVideo_Example' do
   pod 'FSEditVideo', :path => '../'
+  
+  pod 'Masonry', '~> 1.1.0'
+  pod 'TZImagePickerController'
+  pod 'CHGAdapter', '~> 1.1.4'
+  pod 'MBProgressHUD'
 
   target 'FSEditVideo_Tests' do
     inherit! :search_paths
