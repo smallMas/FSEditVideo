@@ -34,7 +34,7 @@
 
 - (UIButton *)albumBtn {
     if (!_albumBtn) {
-        _albumBtn = [UIButton createWithType:UIButtonTypeCustom target:self action:@selector(albumAction:)];
+        _albumBtn = [UIButton fsj_createWithType:UIButtonTypeCustom target:self action:@selector(albumAction:)];
         [_albumBtn setBackgroundColor:[UIColor redColor]];
         [_albumBtn setTitle:@"相册" forState:UIControlStateNormal];
         [_albumBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];

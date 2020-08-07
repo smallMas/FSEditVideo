@@ -48,7 +48,7 @@
 }
 
 - (void)setupView {
-    [self.playerView setBackgroundColor:[UIColor randomColor]];
+    [self.playerView setBackgroundColor:[UIColor fsj_randomColor]];
     [self.view addSubview:self.playerView];
     [self.view addSubview:self.nextBtn];
     [self.view addSubview:self.closeBtn];
@@ -84,7 +84,7 @@
 #pragma mark - 懒加载
 - (UIButton *)closeBtn {
     if (!_closeBtn) {
-        _closeBtn = [UIButton createWithType:UIButtonTypeCustom target:self action:@selector(closeAction:)];
+        _closeBtn = [UIButton fsj_createWithType:UIButtonTypeCustom target:self action:@selector(closeAction:)];
         [_closeBtn setImage:[UIImage imageNamed:@"pb_icon_close"] forState:UIControlStateNormal];
     }
     return _closeBtn;
@@ -92,12 +92,12 @@
 
 - (UIButton *)nextBtn {
     if (!_nextBtn) {
-        _nextBtn = [UIButton createWithType:UIButtonTypeCustom target:self action:@selector(nextAction:)];
+        _nextBtn = [UIButton fsj_createWithType:UIButtonTypeCustom target:self action:@selector(nextAction:)];
         [_nextBtn setTitle:@"下一步" forState:UIControlStateNormal];
         [_nextBtn.titleLabel setFont:[UIFont systemFontOfSize:14]];
         [_nextBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_nextBtn setBackgroundColor:COLHEX(@"#FF5757")];
-        [_nextBtn setRoundRadius:3 borderColor:[UIColor clearColor]];
+        [_nextBtn fsj_setRoundRadius:3 borderColor:[UIColor clearColor]];
     }
     return _nextBtn;
 }

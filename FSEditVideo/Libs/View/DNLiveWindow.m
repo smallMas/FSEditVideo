@@ -287,7 +287,7 @@
             }
             
             // 矫正方向
-            image = [image fixOrientation];
+            image = [image fsj_fixOrientation];
             
             if (self.delegate && [self.delegate respondsToSelector:@selector(live_didTakeImage:)]) {
                 [self.delegate live_didTakeImage:image];

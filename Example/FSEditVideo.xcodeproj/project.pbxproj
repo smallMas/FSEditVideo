@@ -26,12 +26,6 @@
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		E9922C9224D955E200F2D197 /* FSCameraConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922C7324D955E200F2D197 /* FSCameraConfig.m */; };
 		E9922C9324D955E200F2D197 /* FSCompoundTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922C7524D955E200F2D197 /* FSCompoundTool.m */; };
-		E9922C9424D955E200F2D197 /* NSString+FSUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922C7924D955E200F2D197 /* NSString+FSUtility.m */; };
-		E9922C9524D955E200F2D197 /* UIButton+FSUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922C7C24D955E200F2D197 /* UIButton+FSUtility.m */; };
-		E9922C9624D955E200F2D197 /* UIColor+FSUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922C7E24D955E200F2D197 /* UIColor+FSUtility.m */; };
-		E9922C9724D955E200F2D197 /* UIImage+FSUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922C8024D955E200F2D197 /* UIImage+FSUtility.m */; };
-		E9922C9824D955E200F2D197 /* UILabel+FSUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922C8224D955E200F2D197 /* UILabel+FSUtility.m */; };
-		E9922C9924D955E200F2D197 /* UIView+FSUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922C8424D955E200F2D197 /* UIView+FSUtility.m */; };
 		E9922C9A24D955E200F2D197 /* FSVideoThumbnailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922C8A24D955E200F2D197 /* FSVideoThumbnailModel.m */; };
 		E9922C9B24D955E200F2D197 /* DNLiveWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922C8D24D955E200F2D197 /* DNLiveWindow.m */; };
 		E9922C9C24D955E200F2D197 /* FSStreamingContext.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922C8F24D955E200F2D197 /* FSStreamingContext.m */; };
@@ -93,18 +87,6 @@
 		E9922C7324D955E200F2D197 /* FSCameraConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCameraConfig.m; sourceTree = "<group>"; };
 		E9922C7424D955E200F2D197 /* FSCompoundTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCompoundTool.h; sourceTree = "<group>"; };
 		E9922C7524D955E200F2D197 /* FSCompoundTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCompoundTool.m; sourceTree = "<group>"; };
-		E9922C7824D955E200F2D197 /* NSString+FSUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FSUtility.h"; sourceTree = "<group>"; };
-		E9922C7924D955E200F2D197 /* NSString+FSUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FSUtility.m"; sourceTree = "<group>"; };
-		E9922C7B24D955E200F2D197 /* UIButton+FSUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+FSUtility.h"; sourceTree = "<group>"; };
-		E9922C7C24D955E200F2D197 /* UIButton+FSUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+FSUtility.m"; sourceTree = "<group>"; };
-		E9922C7D24D955E200F2D197 /* UIColor+FSUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+FSUtility.h"; sourceTree = "<group>"; };
-		E9922C7E24D955E200F2D197 /* UIColor+FSUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FSUtility.m"; sourceTree = "<group>"; };
-		E9922C7F24D955E200F2D197 /* UIImage+FSUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FSUtility.h"; sourceTree = "<group>"; };
-		E9922C8024D955E200F2D197 /* UIImage+FSUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FSUtility.m"; sourceTree = "<group>"; };
-		E9922C8124D955E200F2D197 /* UILabel+FSUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+FSUtility.h"; sourceTree = "<group>"; };
-		E9922C8224D955E200F2D197 /* UILabel+FSUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+FSUtility.m"; sourceTree = "<group>"; };
-		E9922C8324D955E200F2D197 /* UIView+FSUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FSUtility.h"; sourceTree = "<group>"; };
-		E9922C8424D955E200F2D197 /* UIView+FSUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FSUtility.m"; sourceTree = "<group>"; };
 		E9922C8624D955E200F2D197 /* FSColorMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSColorMacro.h; sourceTree = "<group>"; };
 		E9922C8724D955E200F2D197 /* FSFrameMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSFrameMacro.h; sourceTree = "<group>"; };
 		E9922C8924D955E200F2D197 /* FSVideoThumbnailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSVideoThumbnailModel.h; sourceTree = "<group>"; };
@@ -266,7 +248,6 @@
 			isa = PBXGroup;
 			children = (
 				E9922C7124D955E200F2D197 /* Config */,
-				E9922C7624D955E200F2D197 /* Extension */,
 				E9922C8524D955E200F2D197 /* Macro */,
 				E9922C8824D955E200F2D197 /* Model */,
 				E9922C8B24D955E200F2D197 /* View */,
@@ -285,41 +266,6 @@
 				E9922C7524D955E200F2D197 /* FSCompoundTool.m */,
 			);
 			path = Config;
-			sourceTree = "<group>";
-		};
-		E9922C7624D955E200F2D197 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				E9922C7724D955E200F2D197 /* NSUtility */,
-				E9922C7A24D955E200F2D197 /* UIUtility */,
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
-		E9922C7724D955E200F2D197 /* NSUtility */ = {
-			isa = PBXGroup;
-			children = (
-				E9922C7824D955E200F2D197 /* NSString+FSUtility.h */,
-				E9922C7924D955E200F2D197 /* NSString+FSUtility.m */,
-			);
-			path = NSUtility;
-			sourceTree = "<group>";
-		};
-		E9922C7A24D955E200F2D197 /* UIUtility */ = {
-			isa = PBXGroup;
-			children = (
-				E9922C7B24D955E200F2D197 /* UIButton+FSUtility.h */,
-				E9922C7C24D955E200F2D197 /* UIButton+FSUtility.m */,
-				E9922C7D24D955E200F2D197 /* UIColor+FSUtility.h */,
-				E9922C7E24D955E200F2D197 /* UIColor+FSUtility.m */,
-				E9922C7F24D955E200F2D197 /* UIImage+FSUtility.h */,
-				E9922C8024D955E200F2D197 /* UIImage+FSUtility.m */,
-				E9922C8124D955E200F2D197 /* UILabel+FSUtility.h */,
-				E9922C8224D955E200F2D197 /* UILabel+FSUtility.m */,
-				E9922C8324D955E200F2D197 /* UIView+FSUtility.h */,
-				E9922C8424D955E200F2D197 /* UIView+FSUtility.m */,
-			);
-			path = UIUtility;
 			sourceTree = "<group>";
 		};
 		E9922C8524D955E200F2D197 /* Macro */ = {
@@ -586,6 +532,7 @@
 				"${BUILT_PRODUCTS_DIR}/CHGAdapter/CHGAdapter.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/FSEditVideo/FSEditVideo.framework",
+				"${BUILT_PRODUCTS_DIR}/FSJUtility/FSJUtility.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/TZImagePickerController/TZImagePickerController.framework",
@@ -595,6 +542,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CHGAdapter.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSEditVideo.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSJUtility.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TZImagePickerController.framework",
@@ -633,18 +581,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9922C9924D955E200F2D197 /* UIView+FSUtility.m in Sources */,
 				6003F59E195388D20070C39A /* FSAppDelegate.m in Sources */,
 				E9922CF924D963AC00F2D197 /* FSDragView.m in Sources */,
 				6003F5A7195388D20070C39A /* FSViewController.m in Sources */,
-				E9922C9824D955E200F2D197 /* UILabel+FSUtility.m in Sources */,
 				E9922D0D24DA618600F2D197 /* FSPlayerViewController.m in Sources */,
 				E9922CFB24D963AC00F2D197 /* FSThumbnailSequenceView.m in Sources */,
 				E9922CEB24D962C400F2D197 /* FSEditVideoController.m in Sources */,
 				E9922C9B24D955E200F2D197 /* DNLiveWindow.m in Sources */,
-				E9922C9724D955E200F2D197 /* UIImage+FSUtility.m in Sources */,
 				E9922C9324D955E200F2D197 /* FSCompoundTool.m in Sources */,
-				E9922C9624D955E200F2D197 /* UIColor+FSUtility.m in Sources */,
 				E9922D0A24DA5F6000F2D197 /* DNPlayerView.m in Sources */,
 				E9922C9D24D955E200F2D197 /* FSTimeLine.m in Sources */,
 				E9922D0624D968D800F2D197 /* FSAlertUtil.m in Sources */,
@@ -657,9 +601,7 @@
 				E9922D0224D963E100F2D197 /* FSPathTool.m in Sources */,
 				E9922CFA24D963AC00F2D197 /* FSThumbnailCollectionCell.m in Sources */,
 				E9922C9C24D955E200F2D197 /* FSStreamingContext.m in Sources */,
-				E9922C9524D955E200F2D197 /* UIButton+FSUtility.m in Sources */,
 				E9922CEA24D962C400F2D197 /* FSClipVideoController.m in Sources */,
-				E9922C9424D955E200F2D197 /* NSString+FSUtility.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -742,7 +684,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -775,7 +717,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

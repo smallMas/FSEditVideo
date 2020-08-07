@@ -42,7 +42,7 @@
 - (UIView *)lineView {
     if (!_lineView) {
         _lineView = [[UIView alloc] initWithFrame:CGRectZero];
-        [_lineView setRoundRadius:3 borderColor:[UIColor clearColor]];
+        [_lineView fsj_setRoundRadius:3 borderColor:[UIColor clearColor]];
     }
     return _lineView;
 }
