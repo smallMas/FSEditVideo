@@ -9,6 +9,7 @@
 #import "FSEditVideoController.h"
 #import "FSStreamingContext.h"
 #import "FSTimeLine.h"
+#import "FSItemView.h"
 
 @interface FSEditVideoController () <FSStreamingContextDelegate>
 // 关闭按钮
@@ -18,6 +19,8 @@
 
 @property (nonatomic, strong) FSStreamingContext *streamingContext;
 @property (nonatomic, strong) FSTimeLine *timeline;
+
+@property (nonatomic, strong) FSItemView *coverView;
 
 @end
 
@@ -52,6 +55,9 @@
     [self.view addSubview:self.playerView];
     [self.view addSubview:self.nextBtn];
     [self.view addSubview:self.closeBtn];
+    
+    [self.view addSubview:self.coverView];
+    [self.coverView configIcon:[UIImage imageNamed:@"pb_icon_cover"] text:@"封面"];
 }
 
 - (void)layoutUI {
@@ -66,6 +72,13 @@
         make.centerY.mas_equalTo(self.closeBtn);
         make.width.mas_equalTo(70);
         make.height.mas_equalTo(30);
+    }];
+    
+    [self.coverView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(30);
+        make.height.mas_equalTo(44);
+        make.left.mas_equalTo(self.view).inset(30);
+        make.bottom.mas_equalTo(self.view).inset(30+App_SafeBottom_H);
     }];
 }
 
@@ -122,6 +135,13 @@
         _timeline = [[FSTimeLine alloc] init];
     }
     return _timeline;
+}
+
+- (FSItemView *)coverView {
+    if (!_coverView) {
+        _coverView = [[FSItemView alloc] init];
+    }
+    return _coverView;
 }
 
 #pragma mark - btn action

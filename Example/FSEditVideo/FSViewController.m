@@ -10,6 +10,7 @@
 #import "FSClipVideoController.h"
 #import "TZImagePickerController.h"
 #import "FSPlayerViewController.h"
+#import "FSCompressionTool.h"
 
 @interface FSViewController ()
 
@@ -103,14 +104,22 @@
             DN_STRONG_SELF
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (URL) {
-                    [self gotoClipVideoURL:URL];
+//                    [self gotoClipVideoURL:URL];
 //                    [self complete:URL];
 //                    [self playerURL:URL];
 //                    [self rotateVideoAssetWithFileURL:URL dstFileURL:[NSURL fileURLWithPath:[FSPathTool folderVideoPathWithName:DNRecordCompoundFolder fileName:nil]]];
+                    
+                    [self compressionURL:URL];
                 }
             });
         }];
     });
+}
+
+- (void)compressionURL:(NSURL *)URL {
+    [FSCompressionTool compressVideoWithVideoUrl:URL withBiteRate:nil withFrameRate:nil withVideoWidth:nil withVideoHeight:nil compressComplete:^(id  _Nonnull responseObjc) {
+        NSLog(@"responseObjc : %@",responseObjc);
+    }];
 }
 
 - (void)complete:(NSURL *)outputFileURL {
