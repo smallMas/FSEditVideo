@@ -146,8 +146,8 @@
     return composition;
 }
 
-// 获取某个时间点的视频帧
-- (UIImage *)getImageWithTime:(CMTime)time {
+// 获取某个时间点的视频帧缩略图
+- (UIImage *)getThumbnailImageWithTime:(CMTime)time {
     AVAssetImageGenerator *imageGenerator = [AVAssetImageGenerator assetImageGeneratorWithAsset:self.mixComposition];
     imageGenerator.videoComposition = [self videoComposition];
     imageGenerator.maximumSize = CGSizeMake(200, 0);//按比例生成， 不指定会默认视频原来的格式大小
@@ -187,7 +187,7 @@
         CGFloat x = 0;
         while (usec < self.duration) {
             CMTime time = CMTimeMake((int64_t)(usec), FS_TIME_BASE);
-            UIImage *image = [self getImageWithTime:time];
+            UIImage *image = [self getThumbnailImageWithTime:time];
             if (image) {
                 FSVideoThumbnailModel *model = [FSVideoThumbnailModel new];
                 model.thumbnailImage = image;
