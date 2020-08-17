@@ -43,7 +43,6 @@
 		E9922D0A24DA5F6000F2D197 /* DNPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922D0924DA5F6000F2D197 /* DNPlayerView.m */; };
 		E9922D0D24DA618600F2D197 /* FSPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922D0C24DA618600F2D197 /* FSPlayerViewController.m */; };
 		E998954624E3B97B00946D6E /* FSItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = E998954524E3B97A00946D6E /* FSItemView.m */; };
-		E998957824E6798D00946D6E /* FSCompressionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E998957724E6798C00946D6E /* FSCompressionTool.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,8 +125,6 @@
 		E9922D0C24DA618600F2D197 /* FSPlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSPlayerViewController.m; sourceTree = "<group>"; };
 		E998954424E3B97A00946D6E /* FSItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSItemView.h; sourceTree = "<group>"; };
 		E998954524E3B97A00946D6E /* FSItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSItemView.m; sourceTree = "<group>"; };
-		E998957624E6798C00946D6E /* FSCompressionTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSCompressionTool.h; sourceTree = "<group>"; };
-		E998957724E6798C00946D6E /* FSCompressionTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSCompressionTool.m; sourceTree = "<group>"; };
 		F0FDFA2A520A8B0A0E55453B /* Pods-FSEditVideo_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSEditVideo_Example.release.xcconfig"; path = "Target Support Files/Pods-FSEditVideo_Example/Pods-FSEditVideo_Example.release.xcconfig"; sourceTree = "<group>"; };
 		F5C627368BB0B8FDB17E3731 /* Pods-FSEditVideo_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSEditVideo_Tests.debug.xcconfig"; path = "Target Support Files/Pods-FSEditVideo_Tests/Pods-FSEditVideo_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -270,8 +267,6 @@
 				E9922C7324D955E200F2D197 /* FSCameraConfig.m */,
 				E9922C7424D955E200F2D197 /* FSCompoundTool.h */,
 				E9922C7524D955E200F2D197 /* FSCompoundTool.m */,
-				E998957624E6798C00946D6E /* FSCompressionTool.h */,
-				E998957724E6798C00946D6E /* FSCompressionTool.m */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -591,7 +586,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E998957824E6798D00946D6E /* FSCompressionTool.m in Sources */,
 				E998954624E3B97B00946D6E /* FSItemView.m in Sources */,
 				6003F59E195388D20070C39A /* FSAppDelegate.m in Sources */,
 				E9922CF924D963AC00F2D197 /* FSDragView.m in Sources */,
