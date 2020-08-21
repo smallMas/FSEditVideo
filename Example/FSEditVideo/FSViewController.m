@@ -10,6 +10,7 @@
 #import "FSClipVideoController.h"
 #import "TZImagePickerController.h"
 #import "FSPlayerViewController.h"
+#import "FSPreviewController.h"
 
 @interface FSViewController ()
 
@@ -103,14 +104,21 @@
             DN_STRONG_SELF
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (URL) {
-                    [self gotoClipVideoURL:URL];
+//                    [self gotoClipVideoURL:URL];
 //                    [self complete:URL];
 //                    [self playerURL:URL];
 //                    [self rotateVideoAssetWithFileURL:URL dstFileURL:[NSURL fileURLWithPath:[FSPathTool folderVideoPathWithName:DNRecordCompoundFolder fileName:nil]]];
+                    [self gotoPreview:URL];
                 }
             });
         }];
     });
+}
+
+- (void)gotoPreview:(NSURL *)URL {
+    FSPreviewController *vc = [FSPreviewController new];
+    vc.videoURL = URL;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)complete:(NSURL *)outputFileURL {

@@ -146,6 +146,23 @@
     return composition;
 }
 
+- (UIImage *)getImageWithTime:(CMTime)time {
+    AVAssetImageGenerator *imageGenerator = [AVAssetImageGenerator assetImageGeneratorWithAsset:self.mixComposition];
+    imageGenerator.videoComposition = [self videoComposition];
+    CMTime actualTime;//获取到图片确切的时间
+    NSError *error = nil;
+    CGImageRef CGImage = [imageGenerator copyCGImageAtTime:time actualTime:&actualTime error:&error];
+    if (!error) {
+        
+        UIImage *image = [UIImage imageWithCGImage:CGImage];
+        CMTimeShow(actualTime);   //{111600/90000 = 1.240}
+        CMTimeShow(time); // {1/1 = 1.000}
+        
+        return image;
+    }
+    return nil;
+}
+
 // 获取某个时间点的视频帧缩略图
 - (UIImage *)getThumbnailImageWithTime:(CMTime)time {
     AVAssetImageGenerator *imageGenerator = [AVAssetImageGenerator assetImageGeneratorWithAsset:self.mixComposition];
@@ -183,31 +200,80 @@
         CGFloat imageCount = ceil(allWidth/frameWidth);
         // 每帧的微妙数
         int64_t frameUsec = self.duration/imageCount;
-        int64_t usec = frameUsec;
+        int64_t usec = 0;//frameUsec;
         CGFloat x = 0;
-        while (usec < self.duration) {
+        while (x<allWidth/*usec < self.duration*/) {
             CMTime time = CMTimeMake((int64_t)(usec), FS_TIME_BASE);
-            UIImage *image = [self getThumbnailImageWithTime:time];
-            if (image) {
+//            UIImage *image = [self getThumbnailImageWithTime:time];
+//            if (image) {
                 FSVideoThumbnailModel *model = [FSVideoThumbnailModel new];
-                model.thumbnailImage = image;
+//                model.thumbnailImage = image;
+                model.time = time;
+                model.isThumbnail = YES;
                 if (x+frameWidth <= allWidth) {
                     model.size = CGSizeMake(frameWidth, 0);
                 }else {
                     model.size = CGSizeMake(allWidth-x, 0);
                 }
-                [array addObject:model];
-                if (array.count == 15) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        if (block) {
-                            block(array);
-                        }
-                    });
+                if (model.size.width >= 0) {
+                    [array addObject:model];
                 }
+//                if (array.count == 15) {
+//                    dispatch_async(dispatch_get_main_queue(), ^{
+//                        if (block) {
+//                            block(array);
+//                        }
+//                    });
+//                }
+//            }
+            x += frameWidth;
+            usec += frameUsec;
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (block) {
+                block(array);
+            }
+        });
+    });
+}
+
+- (void)getThumbnailArrayBlock:(FSArrayBlock)block {
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        NSMutableArray *array = [[NSMutableArray alloc] init];
+        
+        // 每一帧50的宽度
+        CGFloat frameWidth = 50.0f;
+        // 总图片数
+        CGFloat imageCount = self.duration/FS_TIME_BASE;
+        if (self.duration < 15 * FS_TIME_BASE) {
+            imageCount = 15;
+        }
+        CGFloat allWidth = imageCount * frameWidth;
+        
+        // 每帧的微妙数
+        int64_t frameUsec = self.duration/imageCount;
+        int64_t usec = 0;//frameUsec;
+        CGFloat x = 0;
+        while (usec < self.duration) {
+            CMTime time = CMTimeMake((int64_t)(usec), FS_TIME_BASE);
+            FSVideoThumbnailModel *model = [FSVideoThumbnailModel new];
+            model.time = time;
+            model.isThumbnail = YES;
+            if (x+frameWidth <= allWidth) {
+                model.size = CGSizeMake(frameWidth, 0);
+            }else {
+                model.size = CGSizeMake(allWidth-x, 0);
+            }
+            NSLog(@"model.size >>> %@",NSStringFromCGSize(model.size));
+            if (model.size.width > 0) {
+                [array addObject:model];
             }
             x += frameWidth;
             usec += frameUsec;
         }
+        
+        NSLog(@"imagecount : %f array count :%lu",imageCount,(unsigned long)array.count);
         
         dispatch_async(dispatch_get_main_queue(), ^{
             if (block) {

@@ -24,9 +24,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)appendVideoClip:(NSString *)path trimIn:(int64_t)trimIn trimOut:(int64_t)trimOut;
 - (void)appendAudioClip:(NSString *)path trimIn:(int64_t)trimIn trimOut:(int64_t)trimOut;
 
+- (UIImage *)getImageWithTime:(CMTime)time;
 // 获取某个时间点的视频帧缩略图
 - (UIImage *)getThumbnailImageWithTime:(CMTime)time;
 - (void)getThumbnailArrayMaxDuration:(int64_t)maxDuration width:(CGFloat)width block:(FSArrayBlock)block;
+- (void)getThumbnailArrayBlock:(FSArrayBlock)block;
 
 @end
 

@@ -7,7 +7,7 @@
 //
 
 #import "FSThumbnailSequenceView.h"
-#import "FSVideoThumbnailModel.h"
+#import "RBVideoThumbnailModel.h"
 
 @interface FSThumbnailSequenceView ()
 
@@ -15,8 +15,8 @@
 @property (nonatomic, strong) UICollectionViewFlowLayout *layout;
 
 @property (nonatomic, strong) NSMutableArray *dataArray;
-@property (nonatomic, strong) FSVideoThumbnailModel *leftModel;
-@property (nonatomic, strong) FSVideoThumbnailModel *rightModel;
+@property (nonatomic, strong) RBVideoThumbnailModel *leftModel;
+@property (nonatomic, strong) RBVideoThumbnailModel *rightModel;
 
 @property (nonatomic, assign) int64_t duration;
 @property (nonatomic, assign) CGFloat thumbnailWidth; // 默认50
@@ -66,6 +66,16 @@
     [self.collectionView reloadData];
 }
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    for (FSVideoThumbnailModel *model in self.dataArray) {
+        CGSize size = model.size;
+        size.height = self.frame.size.height;
+        model.size = size;
+    }
+    [self reloadData];
+}
+
 #pragma mark - 懒加载
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
@@ -90,8 +100,8 @@
     return _layout;
 }
 
-- (FSVideoThumbnailModel *)createThumbnailModelWidth:(CGFloat)width {
-    FSVideoThumbnailModel *model = [FSVideoThumbnailModel new];
+- (RBVideoThumbnailModel *)createThumbnailModelWidth:(CGFloat)width {
+    RBVideoThumbnailModel *model = [RBVideoThumbnailModel new];
     model.size = CGSizeMake(width, self.collectionView.bounds.size.height);
     return model;
 }
@@ -103,14 +113,14 @@
     return _dataArray;
 }
 
-- (FSVideoThumbnailModel *)leftModel {
+- (RBVideoThumbnailModel *)leftModel {
     if (!_leftModel) {
         _leftModel = [self createThumbnailModelWidth:self.startPadding];
     }
     return _leftModel;
 }
 
-- (FSVideoThumbnailModel *)rightModel {
+- (RBVideoThumbnailModel *)rightModel {
     if (!_rightModel) {
         _rightModel = [self createThumbnailModelWidth:self.endPadding];
     }
@@ -118,19 +128,28 @@
 }
 
 #pragma mark - 外部调用
+- (void)setShowsScrollIndicator:(BOOL)is {
+    self.collectionView.showsVerticalScrollIndicator = is;
+    self.collectionView.showsHorizontalScrollIndicator = is;
+}
+
 - (void)configTimeline:(FSTimeLine *)timeline maxDuration:(int64_t)max block:(FSComplete)block {
     if (timeline) {
+        self.collectionView.customData = timeline;
         _duration = timeline.duration;
         DN_WEAK_SELF
         [timeline getThumbnailArrayMaxDuration:max width:(SCREENWIDTH-self.startPadding-self.endPadding) block:^(NSArray *array) {
             DN_STRONG_SELF
             [self.dataArray removeAllObjects];
+            NSMutableArray *rbArray = [NSMutableArray array];
             for (FSVideoThumbnailModel *model in array) {
-                CGSize size = model.size;
+                RBVideoThumbnailModel *rbModel = [self modelChangeFromModel:model];
+                CGSize size = rbModel.size;
                 size.height = self.frame.size.height;
-                model.size = size;
+                rbModel.size = size;
+                [rbArray addObject:rbModel];
             }
-            [self.dataArray addObjectsFromArray:array];
+            [self.dataArray addObjectsFromArray:rbArray];
             [self reloadData];
             
             if (block) {
@@ -138,6 +157,40 @@
             }
         }];
     }
+}
+
+- (void)configDivideTimeline:(FSTimeLine *)timeline block:(FSComplete)block {
+    if (timeline) {
+        self.collectionView.customData = timeline;
+        _duration = timeline.duration;
+        DN_WEAK_SELF
+        [timeline getThumbnailArrayBlock:^(NSArray *array) {
+            DN_STRONG_SELF
+            [self.dataArray removeAllObjects];
+            NSMutableArray *rbArray = [NSMutableArray array];
+            for (FSVideoThumbnailModel *model in array) {
+                RBVideoThumbnailModel *rbModel = [self modelChangeFromModel:model];
+                CGSize size = rbModel.size;
+                size.height = self.frame.size.height;
+                rbModel.size = size;
+                [rbArray addObject:rbModel];
+            }
+            [self.dataArray addObjectsFromArray:rbArray];
+            [self reloadData];
+            
+            if (block) {
+                block();
+            }
+        }];
+    }
+}
+
+- (RBVideoThumbnailModel *)modelChangeFromModel:(FSVideoThumbnailModel *)model {
+    RBVideoThumbnailModel *rbModel = [RBVideoThumbnailModel new];
+    rbModel.size = model.size;
+    rbModel.time = model.time;
+    rbModel.isThumbnail = model.isThumbnail;
+    return rbModel;
 }
 
 - (int64_t)mapTimelinePosFromX:(CGFloat)x {

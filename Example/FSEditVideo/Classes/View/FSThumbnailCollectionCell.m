@@ -8,6 +8,7 @@
 
 #import "FSThumbnailCollectionCell.h"
 #import "FSVideoThumbnailModel.h"
+#import "FSTimeLine.h"
 
 @interface FSThumbnailCollectionCell()
 
@@ -48,7 +49,16 @@
 - (void)configData:(id)data {
     if ([data isKindOfClass:[FSVideoThumbnailModel class]]) {
         FSVideoThumbnailModel *model = data;
-        [self.thumbnailView setImage:model.thumbnailImage];
+        FSTimeLine *timeline = self.customData;
+        if (model.isThumbnail) {
+            FSJ_WEAK_SELF
+            [model getThumbnailImageWithTimeLine:timeline block:^(UIImage * _Nonnull image) {
+                FSJ_STRONG_SELF
+                [self.thumbnailView setImage:image];
+            }];
+        }else {
+            [self.thumbnailView setImage:nil];
+        }
     }
 }
 

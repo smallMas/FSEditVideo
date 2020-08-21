@@ -24,6 +24,11 @@
 		69943CADFA7B41A502C4497B /* Pods_FSEditVideo_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E196164A8EF5CEB624D49CEF /* Pods_FSEditVideo_Example.framework */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		E952E92324EF6F330001E37E /* RBCoverChildController.m in Sources */ = {isa = PBXBuildFile; fileRef = E952E92224EF6F330001E37E /* RBCoverChildController.m */; };
+		E952E92624EF6F5C0001E37E /* RBAlbumController.m in Sources */ = {isa = PBXBuildFile; fileRef = E952E92524EF6F5C0001E37E /* RBAlbumController.m */; };
+		E952E92924EFA4400001E37E /* RBSegmentBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = E952E92824EFA4400001E37E /* RBSegmentBarView.m */; };
+		E952E92C24EFA8C10001E37E /* RBCoverChildView.m in Sources */ = {isa = PBXBuildFile; fileRef = E952E92B24EFA8C10001E37E /* RBCoverChildView.m */; };
+		E952E93024EFD1880001E37E /* RBVideoThumbnailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E952E92F24EFD1880001E37E /* RBVideoThumbnailModel.m */; };
 		E9922C9224D955E200F2D197 /* FSCameraConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922C7324D955E200F2D197 /* FSCameraConfig.m */; };
 		E9922C9324D955E200F2D197 /* FSCompoundTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922C7524D955E200F2D197 /* FSCompoundTool.m */; };
 		E9922C9A24D955E200F2D197 /* FSVideoThumbnailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922C8A24D955E200F2D197 /* FSVideoThumbnailModel.m */; };
@@ -43,6 +48,13 @@
 		E9922D0A24DA5F6000F2D197 /* DNPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922D0924DA5F6000F2D197 /* DNPlayerView.m */; };
 		E9922D0D24DA618600F2D197 /* FSPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922D0C24DA618600F2D197 /* FSPlayerViewController.m */; };
 		E998954624E3B97B00946D6E /* FSItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = E998954524E3B97A00946D6E /* FSItemView.m */; };
+		E9F1DD6824EBB8BF0099947C /* FSPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F1DD6724EBB8BF0099947C /* FSPreviewController.m */; };
+		E9F1DD6C24EBB9A50099947C /* FSBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F1DD6B24EBB9A50099947C /* FSBottomView.m */; };
+		E9F1DD6F24EBC0B80099947C /* RBClipVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F1DD6E24EBC0B80099947C /* RBClipVideoController.m */; };
+		E9F1DD7224EBC39D0099947C /* UIViewController+FSPresent.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F1DD7124EBC39D0099947C /* UIViewController+FSPresent.m */; };
+		E9F1DD7824EBE4890099947C /* UIViewController+FSEVENT.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F1DD7724EBE4890099947C /* UIViewController+FSEVENT.m */; };
+		E9F1DD8424ED08990099947C /* RBCoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F1DD8324ED08990099947C /* RBCoverController.m */; };
+		E9F1DD8724ED26C10099947C /* RBCoverContainView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F1DD8624ED26C10099947C /* RBCoverContainView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +96,16 @@
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E196164A8EF5CEB624D49CEF /* Pods_FSEditVideo_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FSEditVideo_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E952E92124EF6F330001E37E /* RBCoverChildController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RBCoverChildController.h; sourceTree = "<group>"; };
+		E952E92224EF6F330001E37E /* RBCoverChildController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RBCoverChildController.m; sourceTree = "<group>"; };
+		E952E92424EF6F5C0001E37E /* RBAlbumController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RBAlbumController.h; sourceTree = "<group>"; };
+		E952E92524EF6F5C0001E37E /* RBAlbumController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RBAlbumController.m; sourceTree = "<group>"; };
+		E952E92724EFA4400001E37E /* RBSegmentBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RBSegmentBarView.h; sourceTree = "<group>"; };
+		E952E92824EFA4400001E37E /* RBSegmentBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RBSegmentBarView.m; sourceTree = "<group>"; };
+		E952E92A24EFA8C10001E37E /* RBCoverChildView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RBCoverChildView.h; sourceTree = "<group>"; };
+		E952E92B24EFA8C10001E37E /* RBCoverChildView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RBCoverChildView.m; sourceTree = "<group>"; };
+		E952E92E24EFD1880001E37E /* RBVideoThumbnailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RBVideoThumbnailModel.h; sourceTree = "<group>"; };
+		E952E92F24EFD1880001E37E /* RBVideoThumbnailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RBVideoThumbnailModel.m; sourceTree = "<group>"; };
 		E9922C7224D955E200F2D197 /* FSCameraConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCameraConfig.h; sourceTree = "<group>"; };
 		E9922C7324D955E200F2D197 /* FSCameraConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCameraConfig.m; sourceTree = "<group>"; };
 		E9922C7424D955E200F2D197 /* FSCompoundTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCompoundTool.h; sourceTree = "<group>"; };
@@ -125,6 +147,20 @@
 		E9922D0C24DA618600F2D197 /* FSPlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSPlayerViewController.m; sourceTree = "<group>"; };
 		E998954424E3B97A00946D6E /* FSItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSItemView.h; sourceTree = "<group>"; };
 		E998954524E3B97A00946D6E /* FSItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSItemView.m; sourceTree = "<group>"; };
+		E9F1DD6624EBB8BF0099947C /* FSPreviewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSPreviewController.h; sourceTree = "<group>"; };
+		E9F1DD6724EBB8BF0099947C /* FSPreviewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSPreviewController.m; sourceTree = "<group>"; };
+		E9F1DD6A24EBB9A50099947C /* FSBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSBottomView.h; sourceTree = "<group>"; };
+		E9F1DD6B24EBB9A50099947C /* FSBottomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSBottomView.m; sourceTree = "<group>"; };
+		E9F1DD6D24EBC0B80099947C /* RBClipVideoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RBClipVideoController.h; sourceTree = "<group>"; };
+		E9F1DD6E24EBC0B80099947C /* RBClipVideoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RBClipVideoController.m; sourceTree = "<group>"; };
+		E9F1DD7024EBC39D0099947C /* UIViewController+FSPresent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+FSPresent.h"; sourceTree = "<group>"; };
+		E9F1DD7124EBC39D0099947C /* UIViewController+FSPresent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+FSPresent.m"; sourceTree = "<group>"; };
+		E9F1DD7624EBE4890099947C /* UIViewController+FSEVENT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+FSEVENT.h"; sourceTree = "<group>"; };
+		E9F1DD7724EBE4890099947C /* UIViewController+FSEVENT.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+FSEVENT.m"; sourceTree = "<group>"; };
+		E9F1DD8224ED08990099947C /* RBCoverController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RBCoverController.h; sourceTree = "<group>"; };
+		E9F1DD8324ED08990099947C /* RBCoverController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RBCoverController.m; sourceTree = "<group>"; };
+		E9F1DD8524ED26C10099947C /* RBCoverContainView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RBCoverContainView.h; sourceTree = "<group>"; };
+		E9F1DD8624ED26C10099947C /* RBCoverContainView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RBCoverContainView.m; sourceTree = "<group>"; };
 		F0FDFA2A520A8B0A0E55453B /* Pods-FSEditVideo_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSEditVideo_Example.release.xcconfig"; path = "Target Support Files/Pods-FSEditVideo_Example/Pods-FSEditVideo_Example.release.xcconfig"; sourceTree = "<group>"; };
 		F5C627368BB0B8FDB17E3731 /* Pods-FSEditVideo_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSEditVideo_Tests.debug.xcconfig"; path = "Target Support Files/Pods-FSEditVideo_Tests/Pods-FSEditVideo_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -247,6 +283,15 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
+		E952E92D24EFD16C0001E37E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E952E92E24EFD1880001E37E /* RBVideoThumbnailModel.h */,
+				E952E92F24EFD1880001E37E /* RBVideoThumbnailModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		E9922C7024D955E200F2D197 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,6 +350,7 @@
 		E9922CE524D962C400F2D197 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				E9F1DD6524EBB8A10099947C /* VC */,
 				E9922D0724DA5F6000F2D197 /* Player */,
 				E9922CFD24D963E100F2D197 /* Tool */,
 				E9922CF524D963AC00F2D197 /* Model */,
@@ -354,6 +400,10 @@
 				E9922D0124D963E100F2D197 /* FSVideoImageTool.m */,
 				E9922D0424D968D800F2D197 /* FSAlertUtil.h */,
 				E9922D0524D968D800F2D197 /* FSAlertUtil.m */,
+				E9F1DD7024EBC39D0099947C /* UIViewController+FSPresent.h */,
+				E9F1DD7124EBC39D0099947C /* UIViewController+FSPresent.m */,
+				E9F1DD7624EBE4890099947C /* UIViewController+FSEVENT.h */,
+				E9F1DD7724EBE4890099947C /* UIViewController+FSEVENT.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -365,6 +415,40 @@
 				E9922D0924DA5F6000F2D197 /* DNPlayerView.m */,
 			);
 			path = Player;
+			sourceTree = "<group>";
+		};
+		E9F1DD6524EBB8A10099947C /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				E952E92D24EFD16C0001E37E /* Model */,
+				E9F1DD6924EBB9740099947C /* View */,
+				E9F1DD6624EBB8BF0099947C /* FSPreviewController.h */,
+				E9F1DD6724EBB8BF0099947C /* FSPreviewController.m */,
+				E9F1DD6D24EBC0B80099947C /* RBClipVideoController.h */,
+				E9F1DD6E24EBC0B80099947C /* RBClipVideoController.m */,
+				E9F1DD8224ED08990099947C /* RBCoverController.h */,
+				E9F1DD8324ED08990099947C /* RBCoverController.m */,
+				E952E92124EF6F330001E37E /* RBCoverChildController.h */,
+				E952E92224EF6F330001E37E /* RBCoverChildController.m */,
+				E952E92424EF6F5C0001E37E /* RBAlbumController.h */,
+				E952E92524EF6F5C0001E37E /* RBAlbumController.m */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		E9F1DD6924EBB9740099947C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E9F1DD6A24EBB9A50099947C /* FSBottomView.h */,
+				E9F1DD6B24EBB9A50099947C /* FSBottomView.m */,
+				E9F1DD8524ED26C10099947C /* RBCoverContainView.h */,
+				E9F1DD8624ED26C10099947C /* RBCoverContainView.m */,
+				E952E92A24EFA8C10001E37E /* RBCoverChildView.h */,
+				E952E92B24EFA8C10001E37E /* RBCoverChildView.m */,
+				E952E92724EFA4400001E37E /* RBSegmentBarView.h */,
+				E952E92824EFA4400001E37E /* RBSegmentBarView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		FA50629A2C56BA9A2D404C55 /* Pods */ = {
@@ -536,7 +620,6 @@
 				"${PODS_ROOT}/Target Support Files/Pods-FSEditVideo_Example/Pods-FSEditVideo_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CHGAdapter/CHGAdapter.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
-				"${BUILT_PRODUCTS_DIR}/FSEditVideo/FSEditVideo.framework",
 				"${BUILT_PRODUCTS_DIR}/FSJUtility/FSJUtility.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
@@ -546,7 +629,6 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CHGAdapter.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSEditVideo.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSJUtility.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
@@ -590,6 +672,8 @@
 				6003F59E195388D20070C39A /* FSAppDelegate.m in Sources */,
 				E9922CF924D963AC00F2D197 /* FSDragView.m in Sources */,
 				6003F5A7195388D20070C39A /* FSViewController.m in Sources */,
+				E952E92924EFA4400001E37E /* RBSegmentBarView.m in Sources */,
+				E952E92624EF6F5C0001E37E /* RBAlbumController.m in Sources */,
 				E9922D0D24DA618600F2D197 /* FSPlayerViewController.m in Sources */,
 				E9922CFB24D963AC00F2D197 /* FSThumbnailSequenceView.m in Sources */,
 				E9922CEB24D962C400F2D197 /* FSEditVideoController.m in Sources */,
@@ -599,15 +683,25 @@
 				E9922C9D24D955E200F2D197 /* FSTimeLine.m in Sources */,
 				E9922D0624D968D800F2D197 /* FSAlertUtil.m in Sources */,
 				E9922C9A24D955E200F2D197 /* FSVideoThumbnailModel.m in Sources */,
+				E9F1DD7224EBC39D0099947C /* UIViewController+FSPresent.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				E9922D0324D963E100F2D197 /* FSVideoImageTool.m in Sources */,
+				E9F1DD8724ED26C10099947C /* RBCoverContainView.m in Sources */,
 				E9922C9224D955E200F2D197 /* FSCameraConfig.m in Sources */,
+				E9F1DD8424ED08990099947C /* RBCoverController.m in Sources */,
 				E9922CF824D963AC00F2D197 /* FSClipVideoView.m in Sources */,
+				E9F1DD6F24EBC0B80099947C /* RBClipVideoController.m in Sources */,
 				E9922CFC24D963AC00F2D197 /* FSRecordingInfo.m in Sources */,
+				E9F1DD6C24EBB9A50099947C /* FSBottomView.m in Sources */,
 				E9922D0224D963E100F2D197 /* FSPathTool.m in Sources */,
+				E952E93024EFD1880001E37E /* RBVideoThumbnailModel.m in Sources */,
+				E952E92324EF6F330001E37E /* RBCoverChildController.m in Sources */,
+				E952E92C24EFA8C10001E37E /* RBCoverChildView.m in Sources */,
 				E9922CFA24D963AC00F2D197 /* FSThumbnailCollectionCell.m in Sources */,
+				E9F1DD7824EBE4890099947C /* UIViewController+FSEVENT.m in Sources */,
 				E9922C9C24D955E200F2D197 /* FSStreamingContext.m in Sources */,
 				E9922CEA24D962C400F2D197 /* FSClipVideoController.m in Sources */,
+				E9F1DD6824EBB8BF0099947C /* FSPreviewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
