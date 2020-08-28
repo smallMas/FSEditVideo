@@ -55,6 +55,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 // 获取视频方向信息
 + (AVMutableVideoComposition *)getVideoComposition:(AVAsset *)asset;
+/// 获取优化后的视频转向信息
++ (AVMutableVideoComposition *)fixedCompositionWithAsset:(AVAsset *)videoAsset;
 
 @end
 

@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "FSTimeLine.h"
+#import "RBCoverChildView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface RBCoverChildController : UIViewController
 
+@property (nonatomic, weak) id delegate;
 @property (nonatomic, strong) FSTimeLine *timeline;
 
 @end

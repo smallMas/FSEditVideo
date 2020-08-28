@@ -71,7 +71,7 @@
 - (UIView *)bottomLineView {
     if (!_bottomLineView) {
         _bottomLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 3)];
-        [_bottomLineView setBackgroundColor:[UIColor redColor]];
+        [_bottomLineView setBackgroundColor:COLHEX(@"#FF6A1B")];
         [_bottomLineView fsj_setRoundRadius:1.5 borderColor:[UIColor clearColor]];
     }
     return _bottomLineView;

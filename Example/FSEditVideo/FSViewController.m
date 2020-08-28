@@ -96,13 +96,18 @@
 #pragma mark - TZImagePickerControllerDelegate
 - (void)imagePickerController:(TZImagePickerController *)picker didFinishPickingVideo:(UIImage *)coverImage sourceAssets:(PHAsset *)asset {
     NSLog(@"asset >>> %@",asset);
+    NSLog(@"localIdentifier : %@",asset.localIdentifier);
     
+//    [self playerAsset:asset];
+    
+    [FSAlertUtil showLoading];
     DN_WEAK_SELF
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         DN_STRONG_SELF
         [FSVideoImageTool getVideoURL:asset block:^(NSURL * _Nonnull URL) {
             DN_STRONG_SELF
             dispatch_async(dispatch_get_main_queue(), ^{
+                [FSAlertUtil hiddenLoading];
                 if (URL) {
 //                    [self gotoClipVideoURL:URL];
 //                    [self complete:URL];
@@ -216,6 +221,82 @@
     FSPlayerViewController *vc = [FSPlayerViewController new];
     vc.URL = url;
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)playerAsset:(PHAsset *)asset {
+    DN_WEAK_SELF
+    [self handleAsset:asset block:^(AVMutableComposition *URL) {
+        DN_STRONG_SELF
+        FSPlayerViewController *vc = [FSPlayerViewController new];
+        vc.asset = URL;
+        [self.navigationController pushViewController:vc animated:YES];
+    }];
+}
+
+- (void)handleAsset:(PHAsset *)asset block:(void (^)(AVMutableComposition *URL))block {
+    PHVideoRequestOptions* options = [[PHVideoRequestOptions alloc] init];
+    options.version = PHVideoRequestOptionsVersionOriginal;
+    options.networkAccessAllowed = YES;
+    __block NSURL *url = nil;
+    __weak typeof(self) wself = self;
+    [[PHImageManager defaultManager] requestAVAssetForVideo:asset options:options resultHandler:^(AVAsset * _Nullable asset, AVAudioMix * _Nullable audioMix, NSDictionary * _Nullable info) {
+//        AVURLAsset *videoAsset = (AVURLAsset*)asset;
+//        // 时间起点
+//        CMTime nextClistartTime = kCMTimeZero;
+//        // 视频时间范围
+//        CMTimeRange videoTimeRange = CMTimeRangeMake(kCMTimeZero, videoAsset.duration);
+//        // 创建可变的音视频组合
+//        AVMutableComposition *comosition = [AVMutableComposition composition];
+//
+//        NSError *error = nil;
+//        [comosition insertTimeRange:videoTimeRange ofAsset:videoAsset atTime:kCMTimeZero error:&error];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (block) {
+                block(asset);
+            }
+        });
+    }];
+    
+//    // 路径
+//   NSString *documents = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+//   // 声音来源
+//   NSURL *audioInputUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"五环之歌" ofType:@"mp3"]];
+//   // 视频来源
+//   NSURL *videoInputUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"myPlayer" ofType:@"mp4"]];
+//
+//   // 最终合成输出路径
+//   NSString *outPutFilePath = [documents stringByAppendingPathComponent:@"merge.mp4"];
+//   // 添加合成路径
+//   NSURL *outputFileUrl = [NSURL fileURLWithPath:outPutFilePath];
+//   // 时间起点
+//   CMTime nextClistartTime = kCMTimeZero;
+//   // 创建可变的音视频组合
+//   AVMutableComposition *comosition = [AVMutableComposition composition];
+//
+//
+//   // 视频采集
+//   AVURLAsset *videoAsset = [[AVURLAsset alloc] initWithURL:videoInputUrl options:nil];
+//   // 视频时间范围
+//   CMTimeRange videoTimeRange = CMTimeRangeMake(kCMTimeZero, videoAsset.duration);
+//   // 视频通道 枚举 kCMPersistentTrackID_Invalid = 0
+//   AVMutableCompositionTrack *videoTrack = [comosition addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid];
+//   // 视频采集通道
+//   AVAssetTrack *videoAssetTrack = [[videoAsset tracksWithMediaType:AVMediaTypeVideo] firstObject];
+//   //  把采集轨道数据加入到可变轨道之中
+//   [videoTrack insertTimeRange:videoTimeRange ofTrack:videoAssetTrack atTime:nextClistartTime error:nil];
+//
+//
+//
+//   // 声音采集
+//   AVURLAsset *audioAsset = [[AVURLAsset alloc] initWithURL:audioInputUrl options:nil];
+//   // 因为视频短这里就直接用视频长度了,如果自动化需要自己写判断
+//   CMTimeRange audioTimeRange = videoTimeRange;
+//   // 音频通道
+//   AVMutableCompositionTrack *audioTrack = [comosition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid];
+//   // 音频采集通道
+//   AVAssetTrack *audioAssetTrack = [[audioAsset tracksWithMediaType:AVMediaTypeAudio] firstObject];
+//   // 加入合成轨道之中
+//   [audioTrack insertTimeRange:audioTimeRange ofTrack:audioAssetTrack atTime:nextClistartTime error:nil];
 }
 
 /// -----------------------------------------------------------2

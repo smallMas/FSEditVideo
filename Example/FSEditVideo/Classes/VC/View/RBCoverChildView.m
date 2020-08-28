@@ -16,6 +16,8 @@
 @property (nonatomic, strong) FSThumbnailSequenceView *sequnceView;
 @property (nonatomic, strong) UIView *lineView;
 
+@property (nonatomic, assign) CGFloat duration;
+
 @end
 
 @implementation RBCoverChildView
@@ -77,7 +79,7 @@
 - (UIView *)lineView {
     if (!_lineView) {
         _lineView = [[UIView alloc] init];
-        [_lineView setBackgroundColor:[UIColor whiteColor]];
+        [_lineView setBackgroundColor:COLHEX(@"#FF6A1B")];
     }
     return _lineView;
 }
@@ -86,7 +88,7 @@
 - (void)configTimeline:(FSTimeLine *)timeline {
     if (timeline) {
         // 计算
-//        _duration = timeline.duration;
+        _duration = timeline.duration;
 //        CGFloat length = SCREENWIDTH-marginLR*2;
 //        if (self.duration > maxSecond) {
 //            length = (self.duration/maxSecond)*length;
@@ -99,4 +101,35 @@
         }];
     }
 }
+
+#pragma mark - CHGScrollViewDelegate
+- (void)chg_scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    
+}
+
+- (void)chg_scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat w = scrollView.contentSize.width-marginLR-marginLR;
+    CGFloat contentX = scrollView.contentOffset.x;
+    CGFloat ratio = contentX/w;
+    int64_t time = ratio*self.duration;
+    if (time > self.duration ) {
+        time = self.duration;
+    }
+    if (time < 0) {
+        time = 0;
+    }
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(selectCoverWithTime:)]) {
+        [self.delegate selectCoverWithTime:time];
+    }
+}
+
+- (void)chg_scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    
+}
+
+- (void)chg_scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    
+}
+
 @end

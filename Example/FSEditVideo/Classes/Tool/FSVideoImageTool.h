@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface FSVideoImageTool : NSObject
 
 + (void)getVideoURL:(PHAsset *)phAsset block:(void (^)(NSURL *URL))block;
-
++ (void)getImageWithAsset:(PHAsset *)phAsset block:(void (^)(UIImage *image))block;
 @end
 
 NS_ASSUME_NONNULL_END

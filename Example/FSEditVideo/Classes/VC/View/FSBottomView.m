@@ -28,6 +28,8 @@
 }
 
 - (void)setup {
+    [self.clipBtn fsj_setRoundRadius:3.0 borderColor:[UIColor clearColor]];
+    [self.coverBtn fsj_setRoundRadius:3.0 borderColor:[UIColor clearColor]];
     [self.clipBtn setBackgroundColor:[UIColor fsj_randomColor]];
     [self.coverBtn setBackgroundColor:[UIColor fsj_randomColor]];
     [self addSubview:self.clipBtn];

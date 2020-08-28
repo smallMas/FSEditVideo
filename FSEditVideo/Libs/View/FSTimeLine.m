@@ -53,6 +53,11 @@
         CMTime videoDuration = CMTimeMake(trimOut-trimIn, FS_TIME_BASE);//CMTimeMakeWithSeconds(trimOut, videoAsset.duration.timescale);
         CMTimeRange videoTimeRange = CMTimeRangeMake(startTime, videoDuration);
         
+        AVAssetTrack *videoTrack = [videoAsset tracksWithMediaType:AVMediaTypeVideo].firstObject;
+        CGSize videoSize = CGSizeApplyAffineTransform(videoTrack.naturalSize, videoTrack.preferredTransform);
+        videoSize = CGSizeMake(fabs(videoSize.width), fabs(videoSize.height));
+        _videoSize = videoSize;
+        
         NSError *error = nil;
         
         // 方法一 : 分别加视频轨道和声音轨道（这种方法暂时有问题，导出新的视频后，不能再编辑了）
@@ -142,7 +147,7 @@
 }
 
 - (AVMutableVideoComposition *)videoComposition {
-    AVMutableVideoComposition *composition = [FSCompoundTool getVideoComposition:self.videoAsset];
+    AVMutableVideoComposition *composition = [FSCompoundTool fixedCompositionWithAsset:self.videoAsset];
     return composition;
 }
 

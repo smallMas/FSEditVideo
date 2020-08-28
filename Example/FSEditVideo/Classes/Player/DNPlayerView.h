@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** 播放方法 */
 - (void)playWithUrl:(NSURL *)url;
+- (void)playWithAsset:(AVMutableComposition *)asset;
 
 @end
 

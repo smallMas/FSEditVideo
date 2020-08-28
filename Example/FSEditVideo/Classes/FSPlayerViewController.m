@@ -22,7 +22,11 @@
     _playerView = [[DNPlayerView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:self.playerView];
     
-    [self.playerView playWithUrl:self.URL];
+    if (self.URL) {
+       [self.playerView playWithUrl:self.URL];
+    }else {
+        [self.playerView playWithAsset:self.asset];
+    }
 }
 
 @end

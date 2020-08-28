@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface FSTimeLine : NSObject
 
 @property (nonatomic, assign, readonly) int64_t duration; // 时间线时长 (单位微妙)
+@property (nonatomic, assign, readonly) CGSize videoSize;
 
 - (AVAsset *)getTimeAsset;
 - (AVMutableVideoComposition *)videoComposition;

@@ -7,6 +7,7 @@
 //
 
 #import "FSStreamingContext.h"
+#import "FSPlayWindow.h"
 
 @interface FSStreamingContext ()
 
@@ -52,25 +53,35 @@
         NSLog(@"连接失败，预览view为空");
         return NO;
     }
+    
+    UIView *layerView = view;
+    if ([view isKindOfClass:[FSPlayWindow class]]) {
+        FSPlayWindow *window = (FSPlayWindow *)view;
+        layerView = window.playerView;
+        [window reloadPlaySize:timeline.videoSize];
+    }
     _timeline = timeline;
     
     // 传入地址 (CGSize)
     AVAsset *asset = [self.timeline getTimeAsset];
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
     AVMutableVideoComposition *composition = [self.timeline videoComposition];
-    [playerItem setVideoComposition:composition];
+    if (composition.renderSize.width) {
+        // 修正视频转向
+        [playerItem setVideoComposition:composition];
+    }
     
     // 播放器
     AVPlayer *player = [AVPlayer playerWithPlayerItem:playerItem];
     _player = player;
     // 播放器layer
     AVPlayerLayer *playerLayer = [AVPlayerLayer playerLayerWithPlayer:player];
-    if (view) {
-        playerLayer.frame = view.frame;
+    if (layerView) {
+        playerLayer.frame = layerView.bounds;
         // 视频填充模式
         playerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;//AVLayerVideoGravityResizeAspect;
         // 添加到imageview的layer上
-        [view.layer addSublayer:playerLayer];
+        [layerView.layer addSublayer:playerLayer];
     }
     
     //实时监听播放状态
@@ -99,15 +110,18 @@
 }
 
 - (void)seekToTime:(int64_t)time {
-    if ((time > 0 && time < FS_TIME_BASE) ||
-        time > self.timeline.duration) {
-        NSLog(@"seek错误 : seek时间错误");
+    if (time > self.timeline.duration) {
+        NSLog(@"seek错误 : seek时间错误 time : %lld duration : %lld",time,self.timeline.duration);
         return;
     }
     
     CMTime start = CMTimeMake((int64_t)(time), FS_TIME_BASE);
     [self.player seekToTime:start];
     self.currentPosition = time;
+}
+
+- (CMTime)getCurrentTime {
+    return self.player?self.player.currentTime:kCMTimeZero;
 }
 
 - (void)play {

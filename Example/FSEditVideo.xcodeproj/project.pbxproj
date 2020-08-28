@@ -29,6 +29,7 @@
 		E952E92924EFA4400001E37E /* RBSegmentBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = E952E92824EFA4400001E37E /* RBSegmentBarView.m */; };
 		E952E92C24EFA8C10001E37E /* RBCoverChildView.m in Sources */ = {isa = PBXBuildFile; fileRef = E952E92B24EFA8C10001E37E /* RBCoverChildView.m */; };
 		E952E93024EFD1880001E37E /* RBVideoThumbnailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E952E92F24EFD1880001E37E /* RBVideoThumbnailModel.m */; };
+		E952E9A524F519540001E37E /* FSCoverTopBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = E952E9A424F519540001E37E /* FSCoverTopBarView.m */; };
 		E9922C9224D955E200F2D197 /* FSCameraConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922C7324D955E200F2D197 /* FSCameraConfig.m */; };
 		E9922C9324D955E200F2D197 /* FSCompoundTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922C7524D955E200F2D197 /* FSCompoundTool.m */; };
 		E9922C9A24D955E200F2D197 /* FSVideoThumbnailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922C8A24D955E200F2D197 /* FSVideoThumbnailModel.m */; };
@@ -48,6 +49,9 @@
 		E9922D0A24DA5F6000F2D197 /* DNPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922D0924DA5F6000F2D197 /* DNPlayerView.m */; };
 		E9922D0D24DA618600F2D197 /* FSPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922D0C24DA618600F2D197 /* FSPlayerViewController.m */; };
 		E998954624E3B97B00946D6E /* FSItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = E998954524E3B97A00946D6E /* FSItemView.m */; };
+		E9AD995B24F643AD00DCB9DC /* RBPhotoPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9AD995A24F643AD00DCB9DC /* RBPhotoPickerController.m */; };
+		E9AD995F24F661AC00DCB9DC /* FSThumbnailManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E9AD995E24F661AC00DCB9DC /* FSThumbnailManager.m */; };
+		E9AD996224F7886300DCB9DC /* FSPlayWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = E9AD996124F7886300DCB9DC /* FSPlayWindow.m */; };
 		E9F1DD6824EBB8BF0099947C /* FSPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F1DD6724EBB8BF0099947C /* FSPreviewController.m */; };
 		E9F1DD6C24EBB9A50099947C /* FSBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F1DD6B24EBB9A50099947C /* FSBottomView.m */; };
 		E9F1DD6F24EBC0B80099947C /* RBClipVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F1DD6E24EBC0B80099947C /* RBClipVideoController.m */; };
@@ -106,6 +110,8 @@
 		E952E92B24EFA8C10001E37E /* RBCoverChildView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RBCoverChildView.m; sourceTree = "<group>"; };
 		E952E92E24EFD1880001E37E /* RBVideoThumbnailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RBVideoThumbnailModel.h; sourceTree = "<group>"; };
 		E952E92F24EFD1880001E37E /* RBVideoThumbnailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RBVideoThumbnailModel.m; sourceTree = "<group>"; };
+		E952E9A324F519540001E37E /* FSCoverTopBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSCoverTopBarView.h; sourceTree = "<group>"; };
+		E952E9A424F519540001E37E /* FSCoverTopBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSCoverTopBarView.m; sourceTree = "<group>"; };
 		E9922C7224D955E200F2D197 /* FSCameraConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCameraConfig.h; sourceTree = "<group>"; };
 		E9922C7324D955E200F2D197 /* FSCameraConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCameraConfig.m; sourceTree = "<group>"; };
 		E9922C7424D955E200F2D197 /* FSCompoundTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCompoundTool.h; sourceTree = "<group>"; };
@@ -147,6 +153,12 @@
 		E9922D0C24DA618600F2D197 /* FSPlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSPlayerViewController.m; sourceTree = "<group>"; };
 		E998954424E3B97A00946D6E /* FSItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSItemView.h; sourceTree = "<group>"; };
 		E998954524E3B97A00946D6E /* FSItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSItemView.m; sourceTree = "<group>"; };
+		E9AD995924F643AD00DCB9DC /* RBPhotoPickerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RBPhotoPickerController.h; sourceTree = "<group>"; };
+		E9AD995A24F643AD00DCB9DC /* RBPhotoPickerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RBPhotoPickerController.m; sourceTree = "<group>"; };
+		E9AD995D24F661AC00DCB9DC /* FSThumbnailManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSThumbnailManager.h; sourceTree = "<group>"; };
+		E9AD995E24F661AC00DCB9DC /* FSThumbnailManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSThumbnailManager.m; sourceTree = "<group>"; };
+		E9AD996024F7886300DCB9DC /* FSPlayWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSPlayWindow.h; sourceTree = "<group>"; };
+		E9AD996124F7886300DCB9DC /* FSPlayWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSPlayWindow.m; sourceTree = "<group>"; };
 		E9F1DD6624EBB8BF0099947C /* FSPreviewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSPreviewController.h; sourceTree = "<group>"; };
 		E9F1DD6724EBB8BF0099947C /* FSPreviewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSPreviewController.m; sourceTree = "<group>"; };
 		E9F1DD6A24EBB9A50099947C /* FSBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSBottomView.h; sourceTree = "<group>"; };
@@ -343,6 +355,8 @@
 				E9922C8F24D955E200F2D197 /* FSStreamingContext.m */,
 				E9922C9024D955E200F2D197 /* FSTimeLine.h */,
 				E9922C9124D955E200F2D197 /* FSTimeLine.m */,
+				E9AD996024F7886300DCB9DC /* FSPlayWindow.h */,
+				E9AD996124F7886300DCB9DC /* FSPlayWindow.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -417,9 +431,19 @@
 			path = Player;
 			sourceTree = "<group>";
 		};
+		E9AD995C24F6619100DCB9DC /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				E9AD995D24F661AC00DCB9DC /* FSThumbnailManager.h */,
+				E9AD995E24F661AC00DCB9DC /* FSThumbnailManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		E9F1DD6524EBB8A10099947C /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				E9AD995C24F6619100DCB9DC /* Manager */,
 				E952E92D24EFD16C0001E37E /* Model */,
 				E9F1DD6924EBB9740099947C /* View */,
 				E9F1DD6624EBB8BF0099947C /* FSPreviewController.h */,
@@ -432,6 +456,8 @@
 				E952E92224EF6F330001E37E /* RBCoverChildController.m */,
 				E952E92424EF6F5C0001E37E /* RBAlbumController.h */,
 				E952E92524EF6F5C0001E37E /* RBAlbumController.m */,
+				E9AD995924F643AD00DCB9DC /* RBPhotoPickerController.h */,
+				E9AD995A24F643AD00DCB9DC /* RBPhotoPickerController.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -447,6 +473,8 @@
 				E952E92B24EFA8C10001E37E /* RBCoverChildView.m */,
 				E952E92724EFA4400001E37E /* RBSegmentBarView.h */,
 				E952E92824EFA4400001E37E /* RBSegmentBarView.m */,
+				E952E9A324F519540001E37E /* FSCoverTopBarView.h */,
+				E952E9A424F519540001E37E /* FSCoverTopBarView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -515,7 +543,7 @@
 				ORGANIZATIONNAME = "fanshij@163.com";
 				TargetAttributes = {
 					6003F589195388D20070C39A = {
-						DevelopmentTeam = 334V4U3KT6;
+						DevelopmentTeam = DE2G8ZL556;
 					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
@@ -670,6 +698,7 @@
 			files = (
 				E998954624E3B97B00946D6E /* FSItemView.m in Sources */,
 				6003F59E195388D20070C39A /* FSAppDelegate.m in Sources */,
+				E952E9A524F519540001E37E /* FSCoverTopBarView.m in Sources */,
 				E9922CF924D963AC00F2D197 /* FSDragView.m in Sources */,
 				6003F5A7195388D20070C39A /* FSViewController.m in Sources */,
 				E952E92924EFA4400001E37E /* RBSegmentBarView.m in Sources */,
@@ -686,11 +715,13 @@
 				E9F1DD7224EBC39D0099947C /* UIViewController+FSPresent.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				E9922D0324D963E100F2D197 /* FSVideoImageTool.m in Sources */,
+				E9AD995F24F661AC00DCB9DC /* FSThumbnailManager.m in Sources */,
 				E9F1DD8724ED26C10099947C /* RBCoverContainView.m in Sources */,
 				E9922C9224D955E200F2D197 /* FSCameraConfig.m in Sources */,
 				E9F1DD8424ED08990099947C /* RBCoverController.m in Sources */,
 				E9922CF824D963AC00F2D197 /* FSClipVideoView.m in Sources */,
 				E9F1DD6F24EBC0B80099947C /* RBClipVideoController.m in Sources */,
+				E9AD995B24F643AD00DCB9DC /* RBPhotoPickerController.m in Sources */,
 				E9922CFC24D963AC00F2D197 /* FSRecordingInfo.m in Sources */,
 				E9F1DD6C24EBB9A50099947C /* FSBottomView.m in Sources */,
 				E9922D0224D963E100F2D197 /* FSPathTool.m in Sources */,
@@ -701,6 +732,7 @@
 				E9F1DD7824EBE4890099947C /* UIViewController+FSEVENT.m in Sources */,
 				E9922C9C24D955E200F2D197 /* FSStreamingContext.m in Sources */,
 				E9922CEA24D962C400F2D197 /* FSClipVideoController.m in Sources */,
+				E9AD996224F7886300DCB9DC /* FSPlayWindow.m in Sources */,
 				E9F1DD6824EBB8BF0099947C /* FSPreviewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -829,12 +861,12 @@
 			baseConfigurationReference = 17AD74C20ADC18A79EE31A20 /* Pods-FSEditVideo_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 334V4U3KT6;
+				DEVELOPMENT_TEAM = DE2G8ZL556;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FSEditVideo/FSEditVideo-Prefix.pch";
 				INFOPLIST_FILE = "FSEditVideo/FSEditVideo-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = com.dnaer.english;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shengba.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
@@ -846,12 +878,12 @@
 			baseConfigurationReference = F0FDFA2A520A8B0A0E55453B /* Pods-FSEditVideo_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 334V4U3KT6;
+				DEVELOPMENT_TEAM = DE2G8ZL556;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FSEditVideo/FSEditVideo-Prefix.pch";
 				INFOPLIST_FILE = "FSEditVideo/FSEditVideo-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = com.dnaer.english;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shengba.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;

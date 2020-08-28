@@ -7,7 +7,6 @@
 //
 
 #import "RBCoverChildController.h"
-#import "RBCoverChildView.h"
 
 @interface RBCoverChildController ()
 @property (nonatomic, strong) RBCoverChildView *coverView;
@@ -33,6 +32,10 @@
         make.left.right.mas_equalTo(self.view);
         make.centerY.mas_equalTo(self.view);
     }];
+}
+
+- (void)setDelegate:(id)delegate {
+    self.coverView.delegate = delegate;
 }
 
 #pragma mark - 懒加载

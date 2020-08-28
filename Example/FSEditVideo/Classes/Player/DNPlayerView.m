@@ -7,6 +7,7 @@
 //
 
 #import "DNPlayerView.h"
+#import "FSCompoundTool.h"
 
 @interface DNPlayerView ()
 
@@ -18,6 +19,23 @@
 - (void)playWithUrl:(NSURL *)url {
     // 传入地址
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithURL:url];
+    // 播放器
+    AVPlayer *player = [AVPlayer playerWithPlayerItem:playerItem];
+    // 播放器layer
+    AVPlayerLayer *playerLayer = [AVPlayerLayer playerLayerWithPlayer:player];
+    playerLayer.frame = self.frame;
+    // 视频填充模式
+    playerLayer.videoGravity = AVLayerVideoGravityResizeAspect;
+    // 添加到imageview的layer上
+    [self.layer addSublayer:playerLayer];
+    // 播放
+    [player play];
+}
+
+- (void)playWithAsset:(AVMutableComposition *)asset {
+    AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
+    AVMutableVideoComposition *composition = [FSCompoundTool getVideoComposition:asset];
+    [playerItem setVideoComposition:composition];
     // 播放器
     AVPlayer *player = [AVPlayer playerWithPlayerItem:playerItem];
     // 播放器layer

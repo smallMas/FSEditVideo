@@ -12,16 +12,18 @@
 #import "FSBottomView.h"
 #import "RBClipVideoController.h"
 #import "RBCoverController.h"
+#import "FSPlayWindow.h"
 
-@interface FSPreviewController ()
+@interface FSPreviewController () <FSStreamingContextDelegate>
 
-@property (nonatomic, strong) UIView *playerView;
+@property (nonatomic, strong) FSPlayWindow *playerView;
 @property (nonatomic, strong) FSBottomView *bottomView;
 
 @property (nonatomic, strong) FSStreamingContext *streamingContext;
 @property (nonatomic, strong) FSTimeLine *timeline;
 
 @property (nonatomic, strong) NSString *clipPath;
+@property (nonatomic, strong) UIImage *coverImage;
 
 @end
 
@@ -34,6 +36,17 @@
     [self setupView];
     [self layoutUI];
     [self initStreaming];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [self stop];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self replay];
 }
 
 - (void)setupView {
@@ -72,10 +85,19 @@
     [self.streamingContext connectionTimeLine:self.timeline playerView:self.playerView];
 }
 
+#pragma mark - 内部方法
+- (void)replay {
+    [self.streamingContext playStartTime:0 endTime:self.timeline.duration];
+}
+
+- (void)stop {
+    [self.streamingContext stop];
+}
+
 #pragma mark - 懒加载
-- (UIView *)playerView {
+- (FSPlayWindow *)playerView {
     if (!_playerView) {
-        _playerView = [[UIView alloc] initWithFrame:self.view.bounds];
+        _playerView = [[FSPlayWindow alloc] initWithFrame:self.view.bounds];
     }
     return _playerView;
 }
@@ -108,7 +130,15 @@
 }
 
 - (void)nextAction:(id)sender {
-    
+    NSString *path = self.videoURL.path;
+    if (self.clipPath) {
+        path = self.clipPath;
+    }
+    NSString *endPath = [FSPathTool videoRandomPathWithName:DNREcordEndFolder];
+    [FSPathTool copyItemAtPath:path toPath:endPath overwrite:YES];
+    NSLog(@"封面 : %@",self.coverImage);
+    NSLog(@"视频地址 : %@",endPath);
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)gotoClip {
@@ -134,10 +164,16 @@
         FSJ_STRONG_SELF
         if (tag == 0) {
             // 封面image
+            self.coverImage = params;
         }
         return nil;
     };
     [self presentViewController:vc animated:YES completion:nil];
+}
+
+#pragma mark - FSStreamingContextDelegate
+- (void)didPlaybackEOF:(FSTimeLine *)timeline {
+    [self replay];
 }
 
 @end

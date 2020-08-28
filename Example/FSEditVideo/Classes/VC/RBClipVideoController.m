@@ -10,13 +10,14 @@
 #import "FSStreamingContext.h"
 #import "FSTimeLine.h"
 #import "FSClipVideoView.h"
+#import "FSPlayWindow.h"
 
 @interface RBClipVideoController ()
 
 // 关闭按钮
 @property (nonatomic, strong) UIButton *closeBtn;
 @property (nonatomic, strong) UIButton *nextBtn;
-@property (nonatomic, strong) UIView *playerView;
+@property (nonatomic, strong) FSPlayWindow *playerView;
 @property (nonatomic, strong) FSClipVideoView *clipView;
 
 @property (nonatomic, strong) FSStreamingContext *streamingContext;
@@ -118,9 +119,9 @@
     return _nextBtn;
 }
 
-- (UIView *)playerView {
+- (FSPlayWindow *)playerView {
     if (!_playerView) {
-        _playerView = [[UIView alloc] initWithFrame:self.view.bounds];
+        _playerView = [[FSPlayWindow alloc] initWithFrame:self.view.bounds];
     }
     return _playerView;
 }

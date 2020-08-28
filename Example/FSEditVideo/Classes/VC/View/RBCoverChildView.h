@@ -11,7 +11,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol RBCoverChildViewDelegate <NSObject>
+
+@optional
+- (void)selectCoverWithTime:(int64_t)time;
+
+@end
+
 @interface RBCoverChildView : UIView
+
+@property (nonatomic, weak) id <RBCoverChildViewDelegate> delegate;
 
 - (void)configTimeline:(FSTimeLine *)timeline;
 

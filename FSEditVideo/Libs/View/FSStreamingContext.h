@@ -29,6 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (int64_t)getTimelineCurrentPosition;
 
 - (void)seekToTime:(int64_t)time;
+- (CMTime)getCurrentTime;
 // 微妙
 - (void)playStartTime:(int64_t)startTime endTime:(int64_t)endTime;
 - (void)stop;

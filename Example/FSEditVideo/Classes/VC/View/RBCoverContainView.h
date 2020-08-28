@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "RBSegmentBarView.h"
+#import "FSTimeLine.h"
+#import "FSStreamingContext.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -20,6 +22,8 @@ typedef NS_ENUM(NSInteger, RBEndPositionType) {
 
 - (void)movePositionPointY:(CGFloat)y;
 - (void)endMoveType:(RBEndPositionType)type;
+- (void)didTapCloseAction;
+- (void)didTapNextAction;
 
 @end
 
@@ -29,7 +33,12 @@ typedef NS_ENUM(NSInteger, RBEndPositionType) {
 @property (nonatomic, assign, readonly) NSInteger currentIndex;
 - (void)configTitles:(NSArray *)titles;
 - (void)setSelectedIndex:(NSInteger)index;
-- (void)setCoverImage:(UIImage *)image;
+- (void)setCoverImage:(UIImage * __nullable)image;
+- (void)configVideoSize:(CGSize)videoSize;
+- (void)configTimeline:(FSTimeLine *)timeline context:(FSStreamingContext *)context;
+
+- (UIImage *)getCoverImage;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FSPlayerViewController : UIViewController
 @property (nonatomic, strong) NSURL *URL;
+@property (nonatomic, strong) AVAsset *asset;
 @end
 
 NS_ASSUME_NONNULL_END

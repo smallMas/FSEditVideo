@@ -10,15 +10,19 @@
 #import "RBCoverContainView.h"
 #import "RBCoverChildController.h"
 #import "RBAlbumController.h"
+#import "RBPhotoPickerController.h"
 #import "FSTimeLine.h"
+#import "FSStreamingContext.h"
 
-@interface RBCoverController ()
+@interface RBCoverController () <RBPhotoPickerControllerDelegate>
 @property (nonatomic, strong) RBCoverContainView *headerView;
 @property (nonatomic, strong) FSJTabContainView *containView;
 @property (nonatomic, strong) NSArray *titleArray;
 @property (nonatomic, assign) CGFloat headerHeight;
 
 @property (nonatomic, strong) FSTimeLine *timeline;
+@property (nonatomic, strong) FSStreamingContext *streamingContext;
+@property (nonatomic, assign) BOOL isFirst;
 @end
 
 @implementation RBCoverController
@@ -26,10 +30,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self initStreaming];
     [self initData];
+    [self initStreaming];
     [self setupView];
     [self layoutUI];
+    
+    self.isFirst = YES;
+    [self.headerView configTimeline:self.timeline context:self.streamingContext];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+//    [self.streamingContext playStartTime:0 endTime:self.timeline.duration];
 }
 
 - (void)initData {
@@ -37,7 +49,9 @@
 }
 
 - (void)setupView {
-    [self.containView setBackgroundColor:[UIColor fsj_randomColor]];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
+    [self.headerView setBackgroundColor:[UIColor blackColor]];
+    [self.containView setBackgroundColor:[UIColor clearColor]];
     [self.view addSubview:self.headerView];
     [self.view addSubview:self.containView];
     
@@ -47,16 +61,27 @@
         if (i == 0) {
             RBCoverChildController *vc = [RBCoverChildController new];
             vc.timeline = self.timeline;
+            vc.delegate = (id <RBCoverChildViewDelegate>)self;
             [vcs addObject:vc];
         }else {
-            RBAlbumController *vc = [RBAlbumController new];
-//            vc.eventTransmissionBlock = ^id(id target, id params, NSInteger tag, CHGCallBack callBack) {
-//                if (tag == RBAlbumActionTypeScrollUp) {
-//
-//                }
-//                return nil;
-//            };
-            [vcs addObject:vc];
+//            RBAlbumController *vc = [RBAlbumController new];
+//            [vcs addObject:vc];
+            
+            RBPhotoPickerController *vc = [RBPhotoPickerController new];
+            vc.isFirstAppear = YES;
+            vc.columnNumber = 4;
+            vc.delegate = (id <RBPhotoPickerControllerDelegate>)self;
+            
+            DN_WEAK_SELF
+            [[TZImageManager manager] getCameraRollAlbum:YES
+                                           allowPickingImage:YES
+                                             needFetchAssets:NO
+                                                  completion:^(TZAlbumModel *model) {
+                    NSLog(@"model count >>> %ld",model.count);
+                    DN_STRONG_SELF
+                    vc.model = model;
+                    [vcs addObject:vc];
+            }];
         }
     }
     [self.containView configControllers:vcs parentController:self];
@@ -90,15 +115,20 @@
 - (void)initStreaming {
     int64_t duration = [FSCompoundTool getMediaDurationWithMediaURL:self.videoURL];
     [self.timeline appendVideoClip:self.videoURL.path trimIn:0 trimOut:duration];
+    NSLog(@"duration >>>>> %lld",duration);
+    AVAsset *asset = [AVAsset assetWithURL:self.videoURL];
+    NSArray *tracks = [asset tracksWithMediaType:AVMediaTypeVideo];
+    AVAssetTrack *videoTrack = tracks[0];
+    CGSize videoSize = CGSizeApplyAffineTransform(videoTrack.naturalSize, videoTrack.preferredTransform);
+    videoSize = CGSizeMake(fabs(videoSize.width), fabs(videoSize.height));
     
-    // 连接
-//    [self.streamingContext connectionTimeLine:self.timeline playerView:self.playerView];
+    [self.headerView configVideoSize:videoSize];
 }
 
 #pragma mark - 懒加载
 - (RBCoverContainView *)headerView {
     if (!_headerView) {
-        _headerView = [RBCoverContainView new];
+        _headerView = [[RBCoverContainView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.headerHeight)];
         _headerView.delegate = (id <RBCoverContainViewDelegate>)self;
     }
     return _headerView;
@@ -123,6 +153,28 @@
         _timeline = [[FSTimeLine alloc] init];
     }
     return _timeline;
+}
+
+- (FSStreamingContext *)streamingContext {
+    if (!_streamingContext) {
+        _streamingContext = [[FSStreamingContext alloc] init];
+        _streamingContext.delegate = (id <FSStreamingContextDelegate>) self;
+    }
+    return _streamingContext;
+}
+
+#pragma mark - 内部方法
+- (void)getCoverImageBlock:(void (^)(UIImage *image))block {
+    UIImage *img = [self.headerView getCoverImage];
+    if (img) {
+        // 相册封面
+    }else {
+        // 视频帧封面
+        img = [self.timeline getImageWithTime:[self.streamingContext getCurrentTime]];
+    }
+    if (block) {
+        block(img);
+    }
 }
 
 #pragma mark - RBCoverContainViewDelegate
@@ -156,6 +208,43 @@
         }
         [self.headerView.superview layoutIfNeeded];
     }];
+}
+
+- (void)didTapCloseAction {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)didTapNextAction {
+    DN_WEAK_SELF
+    NSLog(@"------------1");
+    [self getCoverImageBlock:^(UIImage *image) {
+        NSLog(@"------------2");
+        DN_STRONG_SELF
+        if (self.eventTransmissionBlock) {
+            self.eventTransmissionBlock(self, image, 0, nil);
+        }
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+}
+
+#pragma mark - RBCoverChildViewDelegate
+- (void)selectCoverWithTime:(int64_t)time {
+    [self.headerView setCoverImage:nil];
+    [self.streamingContext seekToTime:time];
+}
+
+#pragma mark - RBPhotoPickerControllerDelegate
+- (void)photoPickerController:(RBPhotoPickerController *)picker didFinishPickingAssets:(NSArray <PHAsset *>*)assets {
+    PHAsset *asset = assets.firstObject;
+    if (asset) {
+        DN_WEAK_SELF
+        [FSAlertUtil showLoading];
+        [FSVideoImageTool getImageWithAsset:asset block:^(UIImage * _Nonnull image) {
+            DN_STRONG_SELF
+            [FSAlertUtil hiddenLoading];
+            [self.headerView setCoverImage:image];
+        }];
+    }
 }
 
 @end
