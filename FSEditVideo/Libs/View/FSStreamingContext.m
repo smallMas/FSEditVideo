@@ -116,12 +116,18 @@
     }
     
     CMTime start = CMTimeMake((int64_t)(time), FS_TIME_BASE);
-    [self.player seekToTime:start];
+//    [self.player seekToTime:start];
+    [self.player seekToTime:start toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero];
     self.currentPosition = time;
 }
 
 - (CMTime)getCurrentTime {
-    return self.player?self.player.currentTime:kCMTimeZero;
+    CMTime time = kCMTimeZero;
+    if (self.player) {
+        CGFloat second = self.player.currentTime.value/FS_TIME_BASE;
+        time = CMTimeMakeWithSeconds(second, 1000);
+    }
+    return time;
 }
 
 - (void)play {

@@ -208,29 +208,19 @@
         int64_t usec = 0;//frameUsec;
         CGFloat x = 0;
         while (x<allWidth/*usec < self.duration*/) {
-            CMTime time = CMTimeMake((int64_t)(usec), FS_TIME_BASE);
-//            UIImage *image = [self getThumbnailImageWithTime:time];
-//            if (image) {
-                FSVideoThumbnailModel *model = [FSVideoThumbnailModel new];
-//                model.thumbnailImage = image;
-                model.time = time;
-                model.isThumbnail = YES;
-                if (x+frameWidth <= allWidth) {
-                    model.size = CGSizeMake(frameWidth, 0);
-                }else {
-                    model.size = CGSizeMake(allWidth-x, 0);
-                }
-                if (model.size.width >= 0) {
-                    [array addObject:model];
-                }
-//                if (array.count == 15) {
-//                    dispatch_async(dispatch_get_main_queue(), ^{
-//                        if (block) {
-//                            block(array);
-//                        }
-//                    });
-//                }
-//            }
+//            CMTime time = CMTimeMake((int64_t)(usec), FS_TIME_BASE);
+            CMTime time = CMTimeMakeWithSeconds(usec/(CGFloat)FS_TIME_BASE, 1000);
+            FSVideoThumbnailModel *model = [FSVideoThumbnailModel new];
+            model.time = time;
+            model.isThumbnail = YES;
+            if (x+frameWidth <= allWidth) {
+                model.size = CGSizeMake(frameWidth, 0);
+            }else {
+                model.size = CGSizeMake(allWidth-x, 0);
+            }
+            if (model.size.width >= 0) {
+                [array addObject:model];
+            }
             x += frameWidth;
             usec += frameUsec;
         }
@@ -261,7 +251,7 @@
         int64_t usec = 0;//frameUsec;
         CGFloat x = 0;
         while (usec < self.duration) {
-            CMTime time = CMTimeMake((int64_t)(usec), FS_TIME_BASE);
+            CMTime time = CMTimeMakeWithSeconds(usec/(CGFloat)FS_TIME_BASE, 1000);//CMTimeMake((int64_t)(usec), FS_TIME_BASE);
             FSVideoThumbnailModel *model = [FSVideoThumbnailModel new];
             model.time = time;
             model.isThumbnail = YES;
@@ -270,15 +260,12 @@
             }else {
                 model.size = CGSizeMake(allWidth-x, 0);
             }
-            NSLog(@"model.size >>> %@",NSStringFromCGSize(model.size));
             if (model.size.width > 0) {
                 [array addObject:model];
             }
             x += frameWidth;
             usec += frameUsec;
         }
-        
-        NSLog(@"imagecount : %f array count :%lu",imageCount,(unsigned long)array.count);
         
         dispatch_async(dispatch_get_main_queue(), ^{
             if (block) {

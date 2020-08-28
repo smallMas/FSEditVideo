@@ -52,6 +52,8 @@
 		E9AD995B24F643AD00DCB9DC /* RBPhotoPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9AD995A24F643AD00DCB9DC /* RBPhotoPickerController.m */; };
 		E9AD995F24F661AC00DCB9DC /* FSThumbnailManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E9AD995E24F661AC00DCB9DC /* FSThumbnailManager.m */; };
 		E9AD996224F7886300DCB9DC /* FSPlayWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = E9AD996124F7886300DCB9DC /* FSPlayWindow.m */; };
+		E9AD996524F8F88900DCB9DC /* FSShowCoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9AD996424F8F88900DCB9DC /* FSShowCoverController.m */; };
+		E9AD996824F908D000DCB9DC /* RBIconButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E9AD996724F908D000DCB9DC /* RBIconButton.m */; };
 		E9F1DD6824EBB8BF0099947C /* FSPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F1DD6724EBB8BF0099947C /* FSPreviewController.m */; };
 		E9F1DD6C24EBB9A50099947C /* FSBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F1DD6B24EBB9A50099947C /* FSBottomView.m */; };
 		E9F1DD6F24EBC0B80099947C /* RBClipVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F1DD6E24EBC0B80099947C /* RBClipVideoController.m */; };
@@ -159,6 +161,10 @@
 		E9AD995E24F661AC00DCB9DC /* FSThumbnailManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSThumbnailManager.m; sourceTree = "<group>"; };
 		E9AD996024F7886300DCB9DC /* FSPlayWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSPlayWindow.h; sourceTree = "<group>"; };
 		E9AD996124F7886300DCB9DC /* FSPlayWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSPlayWindow.m; sourceTree = "<group>"; };
+		E9AD996324F8F88900DCB9DC /* FSShowCoverController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSShowCoverController.h; sourceTree = "<group>"; };
+		E9AD996424F8F88900DCB9DC /* FSShowCoverController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSShowCoverController.m; sourceTree = "<group>"; };
+		E9AD996624F908D000DCB9DC /* RBIconButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RBIconButton.h; sourceTree = "<group>"; };
+		E9AD996724F908D000DCB9DC /* RBIconButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RBIconButton.m; sourceTree = "<group>"; };
 		E9F1DD6624EBB8BF0099947C /* FSPreviewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSPreviewController.h; sourceTree = "<group>"; };
 		E9F1DD6724EBB8BF0099947C /* FSPreviewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSPreviewController.m; sourceTree = "<group>"; };
 		E9F1DD6A24EBB9A50099947C /* FSBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSBottomView.h; sourceTree = "<group>"; };
@@ -458,6 +464,8 @@
 				E952E92524EF6F5C0001E37E /* RBAlbumController.m */,
 				E9AD995924F643AD00DCB9DC /* RBPhotoPickerController.h */,
 				E9AD995A24F643AD00DCB9DC /* RBPhotoPickerController.m */,
+				E9AD996324F8F88900DCB9DC /* FSShowCoverController.h */,
+				E9AD996424F8F88900DCB9DC /* FSShowCoverController.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -475,6 +483,8 @@
 				E952E92824EFA4400001E37E /* RBSegmentBarView.m */,
 				E952E9A324F519540001E37E /* FSCoverTopBarView.h */,
 				E952E9A424F519540001E37E /* FSCoverTopBarView.m */,
+				E9AD996624F908D000DCB9DC /* RBIconButton.h */,
+				E9AD996724F908D000DCB9DC /* RBIconButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -698,6 +708,7 @@
 			files = (
 				E998954624E3B97B00946D6E /* FSItemView.m in Sources */,
 				6003F59E195388D20070C39A /* FSAppDelegate.m in Sources */,
+				E9AD996824F908D000DCB9DC /* RBIconButton.m in Sources */,
 				E952E9A524F519540001E37E /* FSCoverTopBarView.m in Sources */,
 				E9922CF924D963AC00F2D197 /* FSDragView.m in Sources */,
 				6003F5A7195388D20070C39A /* FSViewController.m in Sources */,
@@ -728,6 +739,7 @@
 				E952E93024EFD1880001E37E /* RBVideoThumbnailModel.m in Sources */,
 				E952E92324EF6F330001E37E /* RBCoverChildController.m in Sources */,
 				E952E92C24EFA8C10001E37E /* RBCoverChildView.m in Sources */,
+				E9AD996524F8F88900DCB9DC /* FSShowCoverController.m in Sources */,
 				E9922CFA24D963AC00F2D197 /* FSThumbnailCollectionCell.m in Sources */,
 				E9F1DD7824EBE4890099947C /* UIViewController+FSEVENT.m in Sources */,
 				E9922C9C24D955E200F2D197 /* FSStreamingContext.m in Sources */,

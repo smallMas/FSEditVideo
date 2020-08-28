@@ -7,11 +7,12 @@
 //
 
 #import "FSBottomView.h"
+#import "RBIconButton.h"
 
 @interface FSBottomView ()
 
-@property (nonatomic, strong) UIButton *clipBtn;
-@property (nonatomic, strong) UIButton *coverBtn;
+@property (nonatomic, strong) RBIconButton *clipBtn;
+@property (nonatomic, strong) RBIconButton *coverBtn;
 
 @end
 
@@ -28,43 +29,51 @@
 }
 
 - (void)setup {
-    [self.clipBtn fsj_setRoundRadius:3.0 borderColor:[UIColor clearColor]];
-    [self.coverBtn fsj_setRoundRadius:3.0 borderColor:[UIColor clearColor]];
-    [self.clipBtn setBackgroundColor:[UIColor fsj_randomColor]];
-    [self.coverBtn setBackgroundColor:[UIColor fsj_randomColor]];
+    [self setBackgroundColor:[UIColor whiteColor]];
     [self addSubview:self.clipBtn];
     [self addSubview:self.coverBtn];
 }
 
 - (void)layoutUI {
-    [self.clipBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.mas_equalTo(60);
-        make.height.mas_equalTo(40);
-        make.centerY.mas_equalTo(self);
-        make.left.mas_equalTo(self).inset(10);
-    }];
+//    [self.clipBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.width.mas_equalTo(60);
+//        make.height.mas_equalTo(40);
+//        make.centerY.mas_equalTo(self);
+//        make.left.mas_equalTo(self).inset(10);
+//    }];
+//
+//    [self.coverBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.width.mas_equalTo(60);
+//        make.height.mas_equalTo(40);
+//        make.centerY.mas_equalTo(self);
+//        make.right.mas_equalTo(self).inset(10);
+//    }];
     
-    [self.coverBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.mas_equalTo(60);
-        make.height.mas_equalTo(40);
-        make.centerY.mas_equalTo(self);
-        make.right.mas_equalTo(self).inset(10);
+    NSArray *array = @[self.clipBtn, self.coverBtn];
+    [array mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:0 leadSpacing:0 tailSpacing:0];
+    [array mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self);
+        make.height.mas_equalTo(60);
     }];
 }
 
 #pragma mark - 懒加载
-- (UIButton *)clipBtn {
+- (RBIconButton *)clipBtn {
     if (!_clipBtn) {
-        _clipBtn = [UIButton fsj_createWithType:UIButtonTypeCustom target:self action:@selector(clipVideo:)];
-        [_clipBtn setTitle:@"裁剪" forState:UIControlStateNormal];
+        _clipBtn = [RBIconButton new];
+        [_clipBtn addTarget:self action:@selector(clipVideo:) forControlEvents:UIControlEventTouchUpInside];
+        [_clipBtn setImage:[UIImage imageNamed:@"pb_video_icon"]];
+        [_clipBtn setTitle:@"裁剪"];
     }
     return _clipBtn;
 }
 
-- (UIButton *)coverBtn {
+- (RBIconButton *)coverBtn {
     if (!_coverBtn) {
-        _coverBtn = [UIButton fsj_createWithType:UIButtonTypeCustom target:self action:@selector(selectedCover:)];
-        [_coverBtn setTitle:@"封面" forState:UIControlStateNormal];
+        _coverBtn = [RBIconButton new];
+        [_coverBtn addTarget:self action:@selector(selectedCover:) forControlEvents:UIControlEventTouchUpInside];
+        [_coverBtn setImage:[UIImage imageNamed:@"pb_cover_icon"]];
+        [_coverBtn setTitle:@"封面"];
     }
     return _coverBtn;
 }

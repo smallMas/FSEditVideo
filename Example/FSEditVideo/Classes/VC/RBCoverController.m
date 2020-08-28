@@ -170,7 +170,8 @@
         // 相册封面
     }else {
         // 视频帧封面
-        img = [self.timeline getImageWithTime:[self.streamingContext getCurrentTime]];
+        CMTime time = [self.streamingContext getCurrentTime];
+        img = [self.timeline getImageWithTime:time];
     }
     if (block) {
         block(img);
@@ -216,9 +217,7 @@
 
 - (void)didTapNextAction {
     DN_WEAK_SELF
-    NSLog(@"------------1");
     [self getCoverImageBlock:^(UIImage *image) {
-        NSLog(@"------------2");
         DN_STRONG_SELF
         if (self.eventTransmissionBlock) {
             self.eventTransmissionBlock(self, image, 0, nil);
@@ -230,6 +229,7 @@
 #pragma mark - RBCoverChildViewDelegate
 - (void)selectCoverWithTime:(int64_t)time {
     [self.headerView setCoverImage:nil];
+    NSLog(@"time >>>> %lld",time);
     [self.streamingContext seekToTime:time];
 }
 

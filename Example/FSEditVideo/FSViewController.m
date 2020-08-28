@@ -11,6 +11,7 @@
 #import "TZImagePickerController.h"
 #import "FSPlayerViewController.h"
 #import "FSPreviewController.h"
+#import "FSShowCoverController.h"
 
 @interface FSViewController ()
 
@@ -218,8 +219,29 @@
 }
 
 - (void)playerURL:(NSURL *)url {
-    FSPlayerViewController *vc = [FSPlayerViewController new];
-    vc.URL = url;
+//    FSPlayerViewController *vc = [FSPlayerViewController new];
+//    vc.URL = url;
+//    [self.navigationController pushViewController:vc animated:YES];
+    
+    
+    
+    int64_t duration = [FSCompoundTool getMediaDurationWithMediaURL:url];
+    AVURLAsset* videoAsset = [[AVURLAsset alloc] initWithURL:url options:nil];
+    AVAssetImageGenerator *imageGenerator = [AVAssetImageGenerator assetImageGeneratorWithAsset:videoAsset];
+//    imageGenerator.videoComposition = [self videoComposition];
+    CMTime actualTime;//获取到图片确切的时间
+    CMTime time = CMTimeMakeWithSeconds(duration/(CGFloat)FS_TIME_BASE, videoAsset.duration.timescale);
+    NSError *error = nil;
+    CGImageRef CGImage = [imageGenerator copyCGImageAtTime:time actualTime:&actualTime error:&error];
+    UIImage *image = nil;
+    if (!error) {
+        
+        image = [UIImage imageWithCGImage:CGImage];
+        CMTimeShow(actualTime);
+        CMTimeShow(time);
+    }
+    FSShowCoverController *vc = [FSShowCoverController new];
+    vc.coverImage = image;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

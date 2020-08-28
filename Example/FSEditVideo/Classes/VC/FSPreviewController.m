@@ -13,6 +13,7 @@
 #import "RBClipVideoController.h"
 #import "RBCoverController.h"
 #import "FSPlayWindow.h"
+#import "FSShowCoverController.h"
 
 @interface FSPreviewController () <FSStreamingContextDelegate>
 
@@ -72,7 +73,7 @@
     [self.bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_equalTo(self.view);
         make.bottom.mas_equalTo(self.view);
-        make.height.mas_equalTo(App_SafeBottom_H+50);
+        make.height.mas_equalTo(App_SafeBottom_H+60);
     }];
 }
 
@@ -136,9 +137,20 @@
     }
     NSString *endPath = [FSPathTool videoRandomPathWithName:DNREcordEndFolder];
     [FSPathTool copyItemAtPath:path toPath:endPath overwrite:YES];
-    NSLog(@"封面 : %@",self.coverImage);
+    
+    UIImage *coverImage = self.coverImage;
+    if (!coverImage) {
+        coverImage = [self.timeline getImageWithTime:kCMTimeZero];
+    }
+    
+    NSLog(@"封面 : %@",coverImage);
     NSLog(@"视频地址 : %@",endPath);
-    [self.navigationController popViewControllerAnimated:YES];
+//    [self.navigationController popViewControllerAnimated:YES];
+    
+    
+    FSShowCoverController *vc = [FSShowCoverController new];
+    vc.coverImage = coverImage;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)gotoClip {
