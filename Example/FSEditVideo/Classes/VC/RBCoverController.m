@@ -68,20 +68,21 @@
 //            [vcs addObject:vc];
             
             RBPhotoPickerController *vc = [RBPhotoPickerController new];
-            vc.isFirstAppear = YES;
+//            vc.isFirstAppear = YES;
             vc.columnNumber = 4;
             vc.delegate = (id <RBPhotoPickerControllerDelegate>)self;
             
-            DN_WEAK_SELF
-            [[TZImageManager manager] getCameraRollAlbum:YES
-                                           allowPickingImage:YES
-                                             needFetchAssets:NO
-                                                  completion:^(TZAlbumModel *model) {
-                    NSLog(@"model count >>> %ld",model.count);
-                    DN_STRONG_SELF
-                    vc.model = model;
-                    [vcs addObject:vc];
-            }];
+//            DN_WEAK_SELF
+//            [[TZImageManager manager] getCameraRollAlbum:YES
+//                                           allowPickingImage:YES
+//                                             needFetchAssets:NO
+//                                                  completion:^(TZAlbumModel *model) {
+//                    NSLog(@"model count >>> %ld",model.count);
+//                    DN_STRONG_SELF
+//                    vc.model = model;
+//                    [vcs addObject:vc];
+//            }];
+            [vcs addObject:vc];
         }
     }
     [self.containView configControllers:vcs parentController:self];
@@ -200,7 +201,11 @@
         FSJ_STRONG_SELF
         if (type == RBEndPositionTypeTop) {
             [self.headerView mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.top.mas_equalTo(self.view).inset(-self.headerHeight+App_SafeTop_H+60);
+                if (self.navigationController) {
+                    make.top.mas_equalTo(self.view).inset(-self.headerHeight+App_SafeTop_H+60+44);
+                }else {
+                    make.top.mas_equalTo(self.view).inset(-self.headerHeight+App_SafeTop_H+60);
+                }
             }];
         }else {
             [self.headerView mas_updateConstraints:^(MASConstraintMaker *make) {

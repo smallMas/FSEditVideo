@@ -19,7 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface RBPhotoPickerController : TZPhotoPickerController
+@interface RBPhotoPickerController : UIViewController
+@property (nonatomic, assign) NSInteger columnNumber;
 @property (nonatomic, weak) id <RBPhotoPickerControllerDelegate> delegate;
 @end
 

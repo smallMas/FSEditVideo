@@ -34,21 +34,24 @@
 - (void)addChildVC {
     DN_WEAK_SELF
     RBPhotoPickerController *photoPickerVc = [[RBPhotoPickerController alloc] init];
-    photoPickerVc.isFirstAppear = YES;
+//    photoPickerVc.isFirstAppear = YES;
     photoPickerVc.columnNumber = 4;
     photoPickerVc.delegate = self;
-    [[TZImageManager manager] getCameraRollAlbum:YES
-                               allowPickingImage:YES
-                                 needFetchAssets:NO
-                                      completion:^(TZAlbumModel *model) {
-        NSLog(@"model count >>> %ld",model.count);
-        DN_STRONG_SELF
-        photoPickerVc.model = model;
-//        [self pushViewController:photoPickerVc animated:YES];
-//        self->_didPushPhotoPickerVc = YES;
-        [self addChildViewController:photoPickerVc];
-        [self.view addSubview:photoPickerVc.view];
-    }];
+//    [[TZImageManager manager] getCameraRollAlbum:YES
+//                               allowPickingImage:YES
+//                                 needFetchAssets:NO
+//                                      completion:^(TZAlbumModel *model) {
+//        NSLog(@"model count >>> %ld",model.count);
+//        DN_STRONG_SELF
+//        photoPickerVc.model = model;
+////        [self pushViewController:photoPickerVc animated:YES];
+////        self->_didPushPhotoPickerVc = YES;
+//        [self addChildViewController:photoPickerVc];
+//        [self.view addSubview:photoPickerVc.view];
+//    }];
+
+    [self addChildViewController:photoPickerVc];
+    [self.view addSubview:photoPickerVc.view];
 }
 
 - (void)photoPickerController:(RBPhotoPickerController *)picker didFinishPickingAssets:(NSArray *)assets {
