@@ -8,6 +8,7 @@
 
 
 typedef void (^ FSComplete)(void);
+typedef void (^ FSPathComplete)(NSString *path);
 typedef void (^ FSSuccessBlock)(BOOL isSuccess);
 typedef void (^ FSSuccessDataBlock)(BOOL isSuccess, id data);
 typedef void (^ FSArrayBlock)(NSArray *array);

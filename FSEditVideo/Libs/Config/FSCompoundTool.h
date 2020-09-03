@@ -37,6 +37,17 @@ NS_ASSUME_NONNULL_BEGIN
                                 completion:(FSComplete)completionHandle;
 
 /**
+ 裁剪视频
+ */
++ (void)clipVideoURL:(NSURL *)URL
+               start:(CMTime)start
+                 end:(CMTime)end
+          outPutPath:(NSString *)outPutPath
+          isHightest:(BOOL)isHightest
+          completion:(FSPathComplete)block;
+
+
+/**
  根据视频路径获取视频时长 秒
 
  @param mediaPath 本地路径

@@ -176,10 +176,30 @@
     [self stop];
     [FSAlertUtil showLoading];
     NSString *outPut = [FSPathTool folderVideoPathWithName:DNRecordCompoundFolder fileName:nil];
-    [self.streamingContext compileVideoOutPutPath:outPut block:^(BOOL isSuccess, NSString *path) {
+//    [self.streamingContext compileVideoOutPutPath:outPut block:^(BOOL isSuccess, NSString *path) {
+//        [FSAlertUtil hiddenLoading];
+//        NSLog(@"path >>> %@",path);
+//        if (isSuccess) {
+//            NSLog(@"合成成功 : %@",path);
+//            if (self.eventTransmissionBlock) {
+//                self.eventTransmissionBlock(self, path, 0, nil);
+//            }
+//        }
+//        [self dismissViewControllerAnimated:YES completion:nil];
+//    }];
+    
+    //开始位置startTime
+    CMTime startTime = CMTimeMake(self.start, FS_TIME_BASE);
+    CMTime endTime = CMTimeMake(self.end-self.start, FS_TIME_BASE);
+    [FSCompoundTool clipVideoURL:self.videoURL
+                           start:startTime
+                             end:endTime
+                      outPutPath:outPut
+                      isHightest:YES
+                      completion:^(NSString *path) {
         [FSAlertUtil hiddenLoading];
         NSLog(@"path >>> %@",path);
-        if (isSuccess) {
+        if (path) {
             NSLog(@"合成成功 : %@",path);
             if (self.eventTransmissionBlock) {
                 self.eventTransmissionBlock(self, path, 0, nil);

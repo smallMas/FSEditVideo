@@ -129,6 +129,83 @@
     }];
 }
 
++ (void)clipVideoURL:(NSURL *)URL
+               start:(CMTime)start
+                 end:(CMTime)end
+          outPutPath:(NSString *)outPutPath
+          isHightest:(BOOL)isHightest
+          completion:(FSPathComplete)block {
+    if (URL && outPutPath) {
+        AVURLAsset *videoAsset = [[AVURLAsset alloc] initWithURL:URL options:nil];
+                    
+        //开始位置startTime
+        CMTime startTime = start;
+        //截取长度videoDuration
+        CMTime videoDuration = end;
+        CMTimeRange videoTimeRange = CMTimeRangeMake(startTime, videoDuration);
+        
+        NSError *error = nil;
+        // 方法二：直接加视频asset
+        AVMutableComposition *mixComposition = [AVMutableComposition composition];
+        [mixComposition insertTimeRange:videoTimeRange ofAsset:videoAsset atTime:kCMTimeZero error:&error];
+        
+        //AVAssetExportSession用于合并文件，导出合并后文件，presetName文件的输出类型
+        AVAssetExportSession *assetExportSession = [[AVAssetExportSession alloc] initWithAsset:mixComposition presetName:isHightest?AVAssetExportPresetHighestQuality:AVAssetExportPresetMediumQuality];//AVAssetExportPreset640x480
+        
+    //    AVMutableVideoComposition *avMutableVideoComposition = [self.timeline videoComposition];
+    //    [assetExportSession setVideoComposition:avMutableVideoComposition];
+        
+        //混合后的视频输出路径
+        NSURL *outPutUrl = [NSURL fileURLWithPath:outPutPath];
+        
+        if ([[NSFileManager defaultManager] fileExistsAtPath:outPutPath])
+        {
+            [[NSFileManager defaultManager] removeItemAtPath:outPutPath error:nil];
+        }
+        
+        //输出视频格式 AVFileTypeMPEG4 AVFileTypeQuickTimeMovie...
+        assetExportSession.outputFileType = AVFileTypeMPEG4;
+        //    NSArray *fileTypes = assetExportSession.
+        
+        assetExportSession.outputURL = outPutUrl;
+        //输出文件是否网络优化
+        assetExportSession.shouldOptimizeForNetworkUse = YES;
+        
+        [assetExportSession exportAsynchronouslyWithCompletionHandler:^{
+            BOOL is = [assetExportSession status] == AVAssetExportSessionStatusCompleted;
+            switch ([assetExportSession status]) {
+                case AVAssetExportSessionStatusFailed:
+                    NSLog(@"Export failed: %@", [[assetExportSession error] localizedDescription]);
+                    break;
+                    
+                case AVAssetExportSessionStatusCancelled:
+                    NSLog(@"Export canceled");
+                    break;
+                    
+                case AVAssetExportSessionStatusCompleted:{
+                    NSLog(@"Export completed");
+                }
+                    break;
+                    
+                default:
+                    NSLog(@"Export other");
+
+                    break;
+            }
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (block) {
+                    block(is?outPutPath:nil);
+                }
+            });
+        }];
+    }else {
+        if (block) {
+            block(nil);
+        }
+    }
+}
+
 + (AVMutableVideoComposition *)getVideoComposition:(AVAsset *)asset
 {
     AVAssetTrack *videoTrack = [[asset tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0];

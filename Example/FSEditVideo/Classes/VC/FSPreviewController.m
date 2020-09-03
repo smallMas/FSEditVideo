@@ -14,6 +14,7 @@
 #import "RBCoverController.h"
 #import "FSPlayWindow.h"
 #import "FSShowCoverController.h"
+#import "FSPlayerViewController.h"
 
 @interface FSPreviewController () <FSStreamingContextDelegate>
 
@@ -162,10 +163,18 @@
         if (tag == 0) {
             // 裁剪返回的字段
             self.clipPath = params;
+            
+            [self playerPath:self.clipPath];
         }
         return nil;
     };
     [self presentViewController:vc animated:YES completion:nil];
+}
+
+- (void)playerPath:(NSString *)path {
+    FSPlayerViewController *vc = [FSPlayerViewController new];
+    vc.URL = [NSURL fileURLWithPath:path];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)gotoCover {
