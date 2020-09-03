@@ -28,8 +28,8 @@
 
 @property (nonatomic, strong) FSThumbnailSequenceView *sequnceView;
 
-@property (nonatomic, strong) UIView *leftView;
-@property (nonatomic, strong) UIView *rightView;
+@property (nonatomic, strong) FSJTapAreaView *leftView;
+@property (nonatomic, strong) FSJTapAreaView *rightView;
 @property (nonatomic, strong) UIView *topView;
 @property (nonatomic, strong) UIView *bottomView;
 @property (nonatomic, strong) UIImageView *leftImgView;
@@ -79,10 +79,12 @@
     _bottomView = [self createView];
     [self addSubview:self.bottomView];
     
-    _leftView = [self createView];
+    _leftView = [self createAreaView];
+    _leftView.fsj_clickArea = @"2";
     [self addSubview:self.leftView];
 
-    _rightView = [self createView];
+    _rightView = [self createAreaView];
+    _rightView.fsj_clickArea = @"2";
     [self addSubview:self.rightView];
     
     _leftImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pb_icon_drag"]];
@@ -174,6 +176,12 @@
 
 - (UIView *)createView {
     UIView *view = [[UIView alloc] init];
+    [view setBackgroundColor:COLHEX(@"#59B4FF")];
+    return view;
+}
+
+- (FSJTapAreaView *)createAreaView {
+    FSJTapAreaView *view = [[FSJTapAreaView alloc] init];
     [view setBackgroundColor:COLHEX(@"#59B4FF")];
     return view;
 }
