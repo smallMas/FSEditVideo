@@ -155,6 +155,13 @@
     //    AVMutableVideoComposition *avMutableVideoComposition = [self.timeline videoComposition];
     //    [assetExportSession setVideoComposition:avMutableVideoComposition];
         
+        // 视频方向
+        AVMutableVideoComposition *videoComposition = [FSCompoundTool fixedCompositionWithAsset:videoAsset];
+        if (videoComposition.renderSize.width) {
+            // 修正视频转向
+            [assetExportSession setVideoComposition:videoComposition];
+        }
+        
         //混合后的视频输出路径
         NSURL *outPutUrl = [NSURL fileURLWithPath:outPutPath];
         

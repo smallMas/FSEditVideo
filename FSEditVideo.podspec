@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'FSEditVideo'
-  s.version          = '0.1.7'
+  s.version          = '0.1.8'
   s.summary          = 'A short description of FSEditVideo.'
 
 # This description is used to generate tags and improve search results.

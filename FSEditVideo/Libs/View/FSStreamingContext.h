@@ -11,18 +11,25 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM(NSInteger, FSPlayState) {
+    FSPlayStateNone,
+    FSPlayStatePlaying,
+};
+
 @protocol FSStreamingContextDelegate <NSObject>
 
 @optional
 - (void)didPlaybackTimelinePosition:(FSTimeLine *)timeline position:(int64_t)position;
 - (void)didPlaybackStopped:(FSTimeLine *)timeline;
 - (void)didPlaybackEOF:(FSTimeLine *)timeline;
+- (void)didPlayState:(FSPlayState)state;
 
 @end
 
 @interface FSStreamingContext : NSObject
 
 @property (nonatomic, weak) id <FSStreamingContextDelegate> delegate;
+@property (nonatomic, assign, readonly) FSPlayState playState;
 
 - (BOOL)connectionTimeLine:(FSTimeLine *)timeline playerView:(UIView *)view;
 

@@ -24,6 +24,7 @@
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [self.player removeTimeObserver:self.timeObserve];
+    [self.player removeObserver:self forKeyPath:@"timeControlStatus"];
 }
 
 - (instancetype)init {
@@ -90,6 +91,7 @@
         DN_STRONG_SELF
         [self timeChange:time];
     }];
+    [self.player addObserver:self forKeyPath:@"timeControlStatus" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
     return YES;
 }
 
@@ -249,6 +251,28 @@
     }else {
         if (self.delegate && [self.delegate respondsToSelector:@selector(didPlaybackTimelinePosition:position:)]) {
             [self.delegate didPlaybackTimelinePosition:self.timeline position:duration];
+        }
+    }
+}
+
+//当key路径对应的属性值发生改变时，监听器就会回调自身的监听方法，如下
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary<NSKeyValueChangeKey,id> *)change
+                       context:(void *)context {
+    if ([keyPath isEqualToString:@"timeControlStatus"]) {
+        NSNumber *newNum = change[NSKeyValueChangeNewKey];
+        NSNumber *oldNum = change[NSKeyValueChangeOldKey];
+        if (newNum && oldNum && newNum.intValue != oldNum.intValue) {
+            AVPlayerTimeControlStatus status = newNum.intValue;
+            if (status == AVPlayerTimeControlStatusPlaying) {
+                _playState = FSPlayStatePlaying;
+            }else {
+                _playState = FSPlayStateNone;
+            }
+            if (self.delegate && [self.delegate respondsToSelector:@selector(didPlayState:)]) {
+                [self.delegate didPlayState:self.playState];
+            }
         }
     }
 }
