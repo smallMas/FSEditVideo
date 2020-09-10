@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface FSPreviewController : UIViewController
 
 @property (nonatomic, strong) NSURL *videoURL;
+@property (nonatomic, strong) AVAsset *asset;
 
 @end
 

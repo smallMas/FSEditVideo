@@ -381,5 +381,12 @@
     return second * FS_TIME_BASE;
 }
 
++ (CGFloat)getMediaDurationWithAsset:(AVAsset *)asset {
+    CMTime duration = asset.duration;
+    
+    CGFloat second = (CGFloat)duration.value / (CGFloat)duration.timescale;
+    return second * FS_TIME_BASE;
+}
+
 
 @end

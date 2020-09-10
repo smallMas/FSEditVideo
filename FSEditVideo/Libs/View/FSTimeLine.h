@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AVMutableVideoComposition *)videoComposition;
 
 - (void)appendVideoClip:(NSString *)path trimIn:(int64_t)trimIn trimOut:(int64_t)trimOut;
+- (void)appendVideoClipAsset:(AVAsset *)videoAsset trimIn:(int64_t)trimIn trimOut:(int64_t)trimOut;
 - (void)appendAudioClip:(NSString *)path trimIn:(int64_t)trimIn trimOut:(int64_t)trimOut;
 
 - (UIImage *)getImageWithTime:(CMTime)time;

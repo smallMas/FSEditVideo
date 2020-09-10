@@ -79,9 +79,16 @@
 }
 
 - (void)initStreaming {
-    int64_t duration = [FSCompoundTool getMediaDurationWithMediaURL:self.videoURL];
+//    int64_t duration = [FSCompoundTool getMediaDurationWithMediaURL:self.videoURL];
+//    NSLog(@"duration >>>> %lld",duration);
+//    [self.timeline appendVideoClip:self.videoURL.path trimIn:0 trimOut:duration];
+//
+//    // 连接
+//    [self.streamingContext connectionTimeLine:self.timeline playerView:self.playerView];
+    
+    int64_t duration = [FSCompoundTool getMediaDurationWithAsset:self.asset];
     NSLog(@"duration >>>> %lld",duration);
-    [self.timeline appendVideoClip:self.videoURL.path trimIn:0 trimOut:duration];
+    [self.timeline appendVideoClipAsset:self.asset trimIn:0 trimOut:duration];
     
     // 连接
     [self.streamingContext connectionTimeLine:self.timeline playerView:self.playerView];

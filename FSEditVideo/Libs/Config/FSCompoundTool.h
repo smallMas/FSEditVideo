@@ -63,6 +63,7 @@ NS_ASSUME_NONNULL_BEGIN
 @return 返回时长
 */
 + (CGFloat)getMediaDurationWithMediaURL:(NSURL *)mediaUrl;
++ (CGFloat)getMediaDurationWithAsset:(AVAsset *)asset;
 
 // 获取视频方向信息
 + (AVMutableVideoComposition *)getVideoComposition:(AVAsset *)asset;

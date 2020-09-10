@@ -101,29 +101,55 @@
     
 //    [self playerAsset:asset];
     
-    [FSAlertUtil showLoading];
-    DN_WEAK_SELF
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        DN_STRONG_SELF
-        [FSVideoImageTool getVideoURL:asset block:^(NSURL * _Nonnull URL) {
-            DN_STRONG_SELF
+//    [FSAlertUtil showLoading];
+//    DN_WEAK_SELF
+//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//        DN_STRONG_SELF
+//        [FSVideoImageTool getVideoURL:asset block:^(NSURL * _Nonnull URL) {
+//            DN_STRONG_SELF
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                [FSAlertUtil hiddenLoading];
+//                if (URL) {
+////                    [self gotoClipVideoURL:URL];
+////                    [self complete:URL];
+////                    [self playerURL:URL];
+////                    [self rotateVideoAssetWithFileURL:URL dstFileURL:[NSURL fileURLWithPath:[FSPathTool folderVideoPathWithName:DNRecordCompoundFolder fileName:nil]]];
+//                    [self gotoPreview:URL];
+//                }
+//            });
+//        }];
+//    });
+    
+    NSLog(@"-------1");
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    PHVideoRequestOptions *options = [[PHVideoRequestOptions alloc] init];
+    options.version = PHVideoRequestOptionsVersionCurrent;
+    options.networkAccessAllowed = YES;
+    options.deliveryMode = PHVideoRequestOptionsDeliveryModeAutomatic;
+    [[PHImageManager defaultManager] requestAVAssetForVideo:asset options:options resultHandler:^(AVAsset * _Nullable asset, AVAudioMix * _Nullable audioMix, NSDictionary * _Nullable info) {
+        NSLog(@"-------2");
+        if (asset && [asset isKindOfClass:[AVURLAsset class]]) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [FSAlertUtil hiddenLoading];
-                if (URL) {
-//                    [self gotoClipVideoURL:URL];
-//                    [self complete:URL];
-//                    [self playerURL:URL];
-//                    [self rotateVideoAssetWithFileURL:URL dstFileURL:[NSURL fileURLWithPath:[FSPathTool folderVideoPathWithName:DNRecordCompoundFolder fileName:nil]]];
-                    [self gotoPreview:URL];
-                }
+                [self gotoPreviewAsset:asset];
             });
-        }];
-    });
+        }
+        
+        dispatch_semaphore_signal(semaphore);
+    }];
+    NSLog(@"-------3");
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+    NSLog(@"-------4");
 }
 
 - (void)gotoPreview:(NSURL *)URL {
     FSPreviewController *vc = [FSPreviewController new];
     vc.videoURL = URL;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)gotoPreviewAsset:(AVAsset *)asset {
+    FSPreviewController *vc = [FSPreviewController new];
+    vc.asset = asset;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
