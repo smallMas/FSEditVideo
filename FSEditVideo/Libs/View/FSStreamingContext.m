@@ -97,8 +97,7 @@
 
 // 微妙
 - (void)playStartTime:(int64_t)startTime endTime:(int64_t)endTime {
-    if ((startTime > 0 && startTime < FS_TIME_BASE) ||
-        startTime > self.timeline.duration) {
+    if (startTime > self.timeline.duration) {
         NSLog(@"开始播放错误 : 开始时间错误 %lld all >> %lld",startTime,self.timeline.duration);
         return;
     }

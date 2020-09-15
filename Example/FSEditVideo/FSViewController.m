@@ -13,7 +13,7 @@
 #import "FSPreviewController.h"
 #import "FSShowCoverController.h"
 
-@interface FSViewController ()
+@interface FSViewController () <UIVideoEditorControllerDelegate>
 
 @property (nonatomic, strong) UIButton *albumBtn;
 
@@ -130,7 +130,11 @@
         NSLog(@"-------2");
         if (asset && [asset isKindOfClass:[AVURLAsset class]]) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self gotoPreviewAsset:asset];
+//                [self gotoPreviewAsset:asset];
+                
+                AVURLAsset *URLAsset = (AVURLAsset *)asset;
+//                [self gotoSystemVideoEdit:URLAsset.URL];
+                [self getThumbailURL:URLAsset.URL];
             });
         }
         
@@ -139,6 +143,70 @@
     NSLog(@"-------3");
     dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
     NSLog(@"-------4");
+}
+
+// 系统编辑controller
+- (void)gotoSystemVideoEdit:(NSURL *)URL {
+    UIVideoEditorController *vc = [[UIVideoEditorController alloc] init];
+    vc.delegate = self;
+    vc.videoPath = URL.path;
+    vc.title = @"视频编辑";
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
+- (void)getThumbailURL:(NSURL *)URL {
+    NSLog(@"%s",__func__);
+    //初始化asset对象
+    AVURLAsset *videoAsset = [[AVURLAsset alloc]initWithURL:URL options:nil];
+    
+    //获取总视频的长度 = 总帧数 / 每秒的帧数
+    long videoSumTime = videoAsset.duration.value / videoAsset.duration.timescale;
+    
+    //创建AVAssetImageGenerator对象
+    AVAssetImageGenerator *generator = [[AVAssetImageGenerator alloc]initWithAsset:videoAsset];
+    generator.maximumSize = CGSizeMake(200, 0);
+    generator.appliesPreferredTrackTransform = YES;
+    generator.requestedTimeToleranceBefore = kCMTimeZero;
+    generator.requestedTimeToleranceAfter = kCMTimeZero;
+    
+    // 添加需要帧数的时间集合
+    NSMutableArray *framesArray = [NSMutableArray array];
+    for (int i = 0; i < videoSumTime; i++) {
+        CMTime time = CMTimeMake(i *videoAsset.duration.timescale , videoAsset.duration.timescale);
+        NSValue *value = [NSValue valueWithCMTime:time];
+        [framesArray addObject:value];
+    }
+    
+    NSMutableArray *imgArray = [NSMutableArray array];
+    
+    NSMutableArray *thumArray = [[NSMutableArray alloc] init];
+    __block long count = 0;
+    [generator generateCGImagesAsynchronouslyForTimes:framesArray completionHandler:^(CMTime requestedTime, CGImageRef img, CMTime actualTime, AVAssetImageGeneratorResult result, NSError *error){
+        
+        if (result == AVAssetImageGeneratorSucceeded) {
+            
+            NSLog(@"%ld",count);
+//            UIImageView *thumImgView = [[UIImageView alloc] initWithFrame:CGRectMake(50+count*self.IMG_Width, 0, self.IMG_Width, 70)];
+//            thumImgView.image = ;
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                [editScrollView addSubview:thumImgView];
+//                editScrollView.contentSize = CGSizeMake(100+count*self.IMG_Width, 0);
+//            });
+            UIImage *image = [UIImage imageWithCGImage:img];
+            [thumArray addObject:image];
+            NSLog(@"thumArray : %lld",thumArray.count);
+            count++;
+        }
+        
+        if (result == AVAssetImageGeneratorFailed) {
+            NSLog(@"Failed with error: %@", [error localizedDescription]);
+        }
+        
+        if (result == AVAssetImageGeneratorCancelled) {
+            NSLog(@"AVAssetImageGeneratorCancelled");
+        }
+    }];
+    NSLog(@"-------------1");
 }
 
 - (void)gotoPreview:(NSURL *)URL {
@@ -555,5 +623,18 @@
     return degress;
 }
 
+#pragma mark - UIVideoEditorControllerDelegate
+- (void)videoEditorController:(UIVideoEditorController *)editor didSaveEditedVideoToPath:(NSString *)editedVideoPath {
+    NSLog(@"%s editedVideoPath : %@",__func__,editedVideoPath);
+}
+
+- (void)videoEditorController:(UIVideoEditorController *)editor didFailWithError:(NSError *)error {
+    NSLog(@"%s",__func__);
+}
+
+- (void)videoEditorControllerDidCancel:(UIVideoEditorController *)editor {
+    NSLog(@"%s",__func__);
+    [editor dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end
