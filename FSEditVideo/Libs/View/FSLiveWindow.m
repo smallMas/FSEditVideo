@@ -10,6 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <Photos/Photos.h>
 #import <CoreMotion/CoreMotion.h>
+#import "FSEditVideoGlobal.h"
 
 @interface FSLiveWindow () {
     dispatch_queue_t actionQueue;
@@ -188,10 +189,10 @@
     _senseType = senseType;
     
     if (self.senseType == FSDirectionSenseTypeMotion) {
-        DN_WEAK_SELF
+        FSJ_WEAK_SELF
         if([self.cmmotionManager isDeviceMotionAvailable]) {
            [self.cmmotionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMAccelerometerData * _Nullable accelerometerData, NSError * _Nullable error) {
-               DN_STRONG_SELF
+               FSJ_STRONG_SELF
                double x = accelerometerData.acceleration.x;
                double y = accelerometerData.acceleration.y;
                if (fabs(y) >= fabs(x)) {
