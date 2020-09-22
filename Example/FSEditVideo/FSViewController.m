@@ -12,6 +12,7 @@
 #import "FSPlayerViewController.h"
 #import "FSPreviewController.h"
 #import "FSShowCoverController.h"
+#import "FSCameraViewController.h"
 
 @interface FSViewController () <UIVideoEditorControllerDelegate>
 
@@ -45,42 +46,48 @@
 }
 
 - (void)albumAction:(id)sender {
-    TZImagePickerController *_imagePickerVc = [[TZImagePickerController alloc] initWithMaxImagesCount:1 delegate:self];
-    // 2. Set the appearance
-    // 2. 在这里设置imagePickerVc的外观
+//    TZImagePickerController *_imagePickerVc = [[TZImagePickerController alloc] initWithMaxImagesCount:1 delegate:self];
+//    // 2. Set the appearance
+//    // 2. 在这里设置imagePickerVc的外观
+//
+//    // 3. 设置是否可以选择视频/图片/原图
+//    _imagePickerVc.allowPickingVideo = YES; // 是否允许选择视频
+//    _imagePickerVc.allowPickingImage = NO; //是否允许选择图片
+//    _imagePickerVc.allowPickingOriginalPhoto = NO;// 是否允许选择原片
+//    _imagePickerVc.allowPickingGif = NO;  //是否允许选择GIF
+//    _imagePickerVc.allowCrop = YES;
+//    _imagePickerVc.timeout = 2;
+//    _imagePickerVc.cropRect = CGRectMake(0, 0, SCREENWIDTH, SCREENWIDTH);
+//    _imagePickerVc.cropRectPortrait = CGRectMake(0, 0, SCREENWIDTH, SCREENWIDTH);
+//    // 4. 照片排列按修改时间升序
+//    _imagePickerVc.sortAscendingByModificationDate = YES;
+//    _imagePickerVc.showSelectBtn = NO;
+//    _imagePickerVc.needCircleCrop = NO;
+////    _imagePickerVc.photoWidth = SCREENWIDTH*2;
+//    _imagePickerVc.circleCropRadius = SCREENWIDTH/2;
+//    _imagePickerVc.statusBarStyle = UIStatusBarStyleDefault;
+////    _imagePickerVc.barItemTextColor = DSColorFromHex(0x323232);
+////    _imagePickerVc.naviTitleColor = DSColorFromHex(0x323232);
+//    _imagePickerVc.navigationItem.leftBarButtonItem.tintColor = [UIColor blackColor];
+//
+//    _imagePickerVc.navigationBar.barTintColor = self.navigationController.navigationBar.barTintColor;
+////           _imagePickerVc.navigationBar.tintColor = DSColorFromHex(0x323232);
+//           UIBarButtonItem *tzBarItem, *BarItem;
+//               tzBarItem = [UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[TZImagePickerController class]]];
+//               BarItem = [UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UIImagePickerController class]]];
+//    //设置返回图片，防止图片被渲染变蓝，以原图显示
+//    _imagePickerVc.navigationBar.backIndicatorTransitionMaskImage = [[UIImage imageNamed:@"public_icon_white_back"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//    _imagePickerVc.navigationBar.backIndicatorImage = [[UIImage imageNamed:@"public_icon_white_back"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//           NSDictionary *titleTextAttributes = [tzBarItem titleTextAttributesForState:UIControlStateNormal];
+//           [BarItem setTitleTextAttributes:titleTextAttributes forState:UIControlStateNormal];
+//    _imagePickerVc.modalPresentationStyle = UIModalPresentationFullScreen;
+//    [self presentViewController:_imagePickerVc animated:YES completion:nil];
     
-    // 3. 设置是否可以选择视频/图片/原图
-    _imagePickerVc.allowPickingVideo = YES; // 是否允许选择视频
-    _imagePickerVc.allowPickingImage = NO; //是否允许选择图片
-    _imagePickerVc.allowPickingOriginalPhoto = NO;// 是否允许选择原片
-    _imagePickerVc.allowPickingGif = NO;  //是否允许选择GIF
-    _imagePickerVc.allowCrop = YES;
-    _imagePickerVc.timeout = 2;
-    _imagePickerVc.cropRect = CGRectMake(0, 0, SCREENWIDTH, SCREENWIDTH);
-    _imagePickerVc.cropRectPortrait = CGRectMake(0, 0, SCREENWIDTH, SCREENWIDTH);
-    // 4. 照片排列按修改时间升序
-    _imagePickerVc.sortAscendingByModificationDate = YES;
-    _imagePickerVc.showSelectBtn = NO;
-    _imagePickerVc.needCircleCrop = NO;
-//    _imagePickerVc.photoWidth = SCREENWIDTH*2;
-    _imagePickerVc.circleCropRadius = SCREENWIDTH/2;
-    _imagePickerVc.statusBarStyle = UIStatusBarStyleDefault;
-//    _imagePickerVc.barItemTextColor = DSColorFromHex(0x323232);
-//    _imagePickerVc.naviTitleColor = DSColorFromHex(0x323232);
-    _imagePickerVc.navigationItem.leftBarButtonItem.tintColor = [UIColor blackColor];
-
-    _imagePickerVc.navigationBar.barTintColor = self.navigationController.navigationBar.barTintColor;
-//           _imagePickerVc.navigationBar.tintColor = DSColorFromHex(0x323232);
-           UIBarButtonItem *tzBarItem, *BarItem;
-               tzBarItem = [UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[TZImagePickerController class]]];
-               BarItem = [UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UIImagePickerController class]]];
-    //设置返回图片，防止图片被渲染变蓝，以原图显示
-    _imagePickerVc.navigationBar.backIndicatorTransitionMaskImage = [[UIImage imageNamed:@"public_icon_white_back"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    _imagePickerVc.navigationBar.backIndicatorImage = [[UIImage imageNamed:@"public_icon_white_back"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-           NSDictionary *titleTextAttributes = [tzBarItem titleTextAttributesForState:UIControlStateNormal];
-           [BarItem setTitleTextAttributes:titleTextAttributes forState:UIControlStateNormal];
-    _imagePickerVc.modalPresentationStyle = UIModalPresentationFullScreen;
-    [self presentViewController:_imagePickerVc animated:YES completion:nil];
+    
+    
+    FSCameraViewController *vc = [FSCameraViewController new];
+    vc.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 - (void)gotoClipVideoURL:(NSURL *)URL {

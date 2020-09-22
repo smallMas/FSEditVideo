@@ -33,7 +33,6 @@
 		E9922C9224D955E200F2D197 /* FSCameraConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922C7324D955E200F2D197 /* FSCameraConfig.m */; };
 		E9922C9324D955E200F2D197 /* FSCompoundTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922C7524D955E200F2D197 /* FSCompoundTool.m */; };
 		E9922C9A24D955E200F2D197 /* FSVideoThumbnailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922C8A24D955E200F2D197 /* FSVideoThumbnailModel.m */; };
-		E9922C9B24D955E200F2D197 /* DNLiveWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922C8D24D955E200F2D197 /* DNLiveWindow.m */; };
 		E9922C9C24D955E200F2D197 /* FSStreamingContext.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922C8F24D955E200F2D197 /* FSStreamingContext.m */; };
 		E9922C9D24D955E200F2D197 /* FSTimeLine.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922C9124D955E200F2D197 /* FSTimeLine.m */; };
 		E9922CEA24D962C400F2D197 /* FSClipVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9922CE724D962C400F2D197 /* FSClipVideoController.m */; };
@@ -54,6 +53,8 @@
 		E9AD996224F7886300DCB9DC /* FSPlayWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = E9AD996124F7886300DCB9DC /* FSPlayWindow.m */; };
 		E9AD996524F8F88900DCB9DC /* FSShowCoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9AD996424F8F88900DCB9DC /* FSShowCoverController.m */; };
 		E9AD996824F908D000DCB9DC /* RBIconButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E9AD996724F908D000DCB9DC /* RBIconButton.m */; };
+		E9D95E092519EBA7004050B2 /* FSLiveWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D95E082519EBA7004050B2 /* FSLiveWindow.m */; };
+		E9D95E0E2519EDDE004050B2 /* FSCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D95E0D2519EDDE004050B2 /* FSCameraViewController.m */; };
 		E9F1DD6824EBB8BF0099947C /* FSPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F1DD6724EBB8BF0099947C /* FSPreviewController.m */; };
 		E9F1DD6C24EBB9A50099947C /* FSBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F1DD6B24EBB9A50099947C /* FSBottomView.m */; };
 		E9F1DD6F24EBC0B80099947C /* RBClipVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F1DD6E24EBC0B80099947C /* RBClipVideoController.m */; };
@@ -122,8 +123,6 @@
 		E9922C8724D955E200F2D197 /* FSFrameMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSFrameMacro.h; sourceTree = "<group>"; };
 		E9922C8924D955E200F2D197 /* FSVideoThumbnailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSVideoThumbnailModel.h; sourceTree = "<group>"; };
 		E9922C8A24D955E200F2D197 /* FSVideoThumbnailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSVideoThumbnailModel.m; sourceTree = "<group>"; };
-		E9922C8C24D955E200F2D197 /* DNLiveWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNLiveWindow.h; sourceTree = "<group>"; };
-		E9922C8D24D955E200F2D197 /* DNLiveWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNLiveWindow.m; sourceTree = "<group>"; };
 		E9922C8E24D955E200F2D197 /* FSStreamingContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSStreamingContext.h; sourceTree = "<group>"; };
 		E9922C8F24D955E200F2D197 /* FSStreamingContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSStreamingContext.m; sourceTree = "<group>"; };
 		E9922C9024D955E200F2D197 /* FSTimeLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSTimeLine.h; sourceTree = "<group>"; };
@@ -165,6 +164,10 @@
 		E9AD996424F8F88900DCB9DC /* FSShowCoverController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSShowCoverController.m; sourceTree = "<group>"; };
 		E9AD996624F908D000DCB9DC /* RBIconButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RBIconButton.h; sourceTree = "<group>"; };
 		E9AD996724F908D000DCB9DC /* RBIconButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RBIconButton.m; sourceTree = "<group>"; };
+		E9D95E072519EBA7004050B2 /* FSLiveWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSLiveWindow.h; sourceTree = "<group>"; };
+		E9D95E082519EBA7004050B2 /* FSLiveWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSLiveWindow.m; sourceTree = "<group>"; };
+		E9D95E0C2519EDDE004050B2 /* FSCameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSCameraViewController.h; sourceTree = "<group>"; };
+		E9D95E0D2519EDDE004050B2 /* FSCameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSCameraViewController.m; sourceTree = "<group>"; };
 		E9F1DD6624EBB8BF0099947C /* FSPreviewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSPreviewController.h; sourceTree = "<group>"; };
 		E9F1DD6724EBB8BF0099947C /* FSPreviewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSPreviewController.m; sourceTree = "<group>"; };
 		E9F1DD6A24EBB9A50099947C /* FSBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSBottomView.h; sourceTree = "<group>"; };
@@ -355,14 +358,14 @@
 		E9922C8B24D955E200F2D197 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E9922C8C24D955E200F2D197 /* DNLiveWindow.h */,
-				E9922C8D24D955E200F2D197 /* DNLiveWindow.m */,
 				E9922C8E24D955E200F2D197 /* FSStreamingContext.h */,
 				E9922C8F24D955E200F2D197 /* FSStreamingContext.m */,
 				E9922C9024D955E200F2D197 /* FSTimeLine.h */,
 				E9922C9124D955E200F2D197 /* FSTimeLine.m */,
 				E9AD996024F7886300DCB9DC /* FSPlayWindow.h */,
 				E9AD996124F7886300DCB9DC /* FSPlayWindow.m */,
+				E9D95E072519EBA7004050B2 /* FSLiveWindow.h */,
+				E9D95E082519EBA7004050B2 /* FSLiveWindow.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -381,6 +384,8 @@
 				E9922CE924D962C400F2D197 /* FSEditVideoController.m */,
 				E9922D0B24DA618600F2D197 /* FSPlayerViewController.h */,
 				E9922D0C24DA618600F2D197 /* FSPlayerViewController.m */,
+				E9D95E0C2519EDDE004050B2 /* FSCameraViewController.h */,
+				E9D95E0D2519EDDE004050B2 /* FSCameraViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -712,12 +717,12 @@
 				E952E9A524F519540001E37E /* FSCoverTopBarView.m in Sources */,
 				E9922CF924D963AC00F2D197 /* FSDragView.m in Sources */,
 				6003F5A7195388D20070C39A /* FSViewController.m in Sources */,
+				E9D95E0E2519EDDE004050B2 /* FSCameraViewController.m in Sources */,
 				E952E92924EFA4400001E37E /* RBSegmentBarView.m in Sources */,
 				E952E92624EF6F5C0001E37E /* RBAlbumController.m in Sources */,
 				E9922D0D24DA618600F2D197 /* FSPlayerViewController.m in Sources */,
 				E9922CFB24D963AC00F2D197 /* FSThumbnailSequenceView.m in Sources */,
 				E9922CEB24D962C400F2D197 /* FSEditVideoController.m in Sources */,
-				E9922C9B24D955E200F2D197 /* DNLiveWindow.m in Sources */,
 				E9922C9324D955E200F2D197 /* FSCompoundTool.m in Sources */,
 				E9922D0A24DA5F6000F2D197 /* DNPlayerView.m in Sources */,
 				E9922C9D24D955E200F2D197 /* FSTimeLine.m in Sources */,
@@ -744,6 +749,7 @@
 				E9F1DD7824EBE4890099947C /* UIViewController+FSEVENT.m in Sources */,
 				E9922C9C24D955E200F2D197 /* FSStreamingContext.m in Sources */,
 				E9922CEA24D962C400F2D197 /* FSClipVideoController.m in Sources */,
+				E9D95E092519EBA7004050B2 /* FSLiveWindow.m in Sources */,
 				E9AD996224F7886300DCB9DC /* FSPlayWindow.m in Sources */,
 				E9F1DD6824EBB8BF0099947C /* FSPreviewController.m in Sources */,
 			);
