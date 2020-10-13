@@ -39,6 +39,7 @@ typedef NS_ENUM(NSInteger, FSDirectionSenseType) {
 @property (nonatomic, assign) FSDirectionSenseType senseType; // 识别方向
 @property (nonatomic, assign) BOOL isCanTapFocus; // 是否可以点击聚焦
 @property (nonatomic, assign) BOOL isCanZoom; // 是否可以缩放
+@property (nonatomic, assign) BOOL isFixLeftRightProblem; // 默认YES，是否矫正左右成像的问题（左右颠倒）
 
 // 开始捕捉画面
 - (void)startRunning;

@@ -5,6 +5,41 @@
 //  Created by 燕来秋 on 2020/9/22.
 //  Copyright © 2020 fanshij@163.com. All rights reserved.
 //
+/*
+ 解决图像左右颠倒问题
+ 1、UIImageOrientation imgOrientation; //拍摄后获取的的图像方向
+    if ([self.input device].position == AVCaptureDevicePositionFront &&
+     self.isFixLeftRightProblem) {
+     NSLog(@"前置摄像头");
+     // 前置摄像头图像方向 UIImageOrientationLeftMirrored
+     // IOS前置摄像头左右成像
+     imgOrientation = UIImageOrientationLeftMirrored;
+     if (image.imageOrientation == UIImageOrientationRight) {
+         imgOrientation = UIImageOrientationLeftMirrored;
+     }else if (image.imageOrientation == UIImageOrientationLeft) {
+         imgOrientation = UIImageOrientationRightMirrored;
+     }else if (image.imageOrientation == UIImageOrientationDown) {
+         imgOrientation = UIImageOrientationDownMirrored;
+     }else if (image.imageOrientation == UIImageOrientationUp) {
+         imgOrientation = UIImageOrientationUpMirrored;
+     }
+     image = [[UIImage alloc]initWithCGImage:image.CGImage scale:1.0f orientation:imgOrientation];
+    }
+ 2、拍照/录制时设置镜像
+     AVCaptureSession *session = (AVCaptureSession *)self.session;
+     for (AVCaptureVideoDataOutput* output in session.outputs) {
+         for (AVCaptureConnection * av in output.connections) {
+             //判断是否是前置摄像头状态
+             if ([self.input device].position == AVCaptureDevicePositionFront) {
+                 if (av.supportsVideoMirroring) {
+                     //镜像设置
+                     av.videoMirrored = YES;
+                 }
+             }
+         }
+     }
+ */
+
 
 #import "FSLiveWindow.h"
 #import <AVFoundation/AVFoundation.h>
@@ -67,6 +102,7 @@
 }
 
 - (void)setup {
+    self.isFixLeftRightProblem = YES;
     self.factor = 1.0f;
     self.deviceOrientation = UIDeviceOrientationPortrait;
     actionQueue = dispatch_queue_create("com.dnaer.FSLiveWindow.action", DISPATCH_QUEUE_SERIAL);
@@ -165,6 +201,24 @@
         AVCaptureConnection *connection = [self.captureMovieFileOutput connectionWithMediaType:AVMediaTypeVideo];
         if ([connection isVideoStabilizationSupported]) {
             connection.preferredVideoStabilizationMode = AVCaptureVideoStabilizationModeCinematic;
+        }
+    }
+}
+
+// 矫正视频左右颠倒
+- (void)videoMirored {
+    if (self.isFixLeftRightProblem) {
+        AVCaptureSession *session = (AVCaptureSession *)self.session;
+        for (AVCaptureVideoDataOutput* output in session.outputs) {
+            for (AVCaptureConnection * av in output.connections) {
+                //判断是否是前置摄像头状态
+                if ([self.input device].position == AVCaptureDevicePositionFront) {
+                    if (av.supportsVideoMirroring) {
+                        //镜像设置
+                        av.videoMirrored = YES;
+                    }
+                }
+            }
         }
     }
 }
@@ -450,6 +504,9 @@
         }
     }
     
+    // 镜像设置
+    [self videoMirored];
+    
     //撷取影像（包含拍照音效）
     [self.ImageOutPut captureStillImageAsynchronouslyFromConnection:myVideoConnection completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
         NSLog(@"拍照 Error : %@",error);
@@ -495,6 +552,9 @@
                     connection.videoOrientation = [self getCaptureVideoOrientation:self.deviceOrientation];
                 }
             }
+            
+            // 镜像设置
+            [self videoMirored];
             
             NSURL *fileUrl = URL;
             [self.captureMovieFileOutput startRecordingToOutputFileURL:fileUrl recordingDelegate:(id <AVCaptureFileOutputRecordingDelegate>)self];
